@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="review">
+
+
+
+
+	<insert id="insertReview" parameterClass="reviewvo">
+		insert into
+		review(rev_no, book_id, rev_content, rev_rating, rev_date) values (
+		review_seq.nextVal, #book_id#, #rev_content#, #rev_rating#,
+		to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'))
+	</insert>
+
+
+	<!-- select a.rev_no, b.book_id, c.bid_id, a.rev_content, a.rev_rating, 
+		a.rev_date, b.mem_id -->
+	<!-- from review a, bookmovie b, bid c -->
+	<!-- where a.book_id = b.book_id -->
+	<!-- and a.bid_id = c.bid_id -->
+	<select id="getAllReview" resultClass="reviewvo2">
+		select  a.rev_no, b.book_id, a.rev_content, a.rev_rating, 
+		a.rev_date, b.mem_id 
+	 from review a, bookmovie b
+    where a.book_id = b.book_id
+	</select>
+
+	<delete id="deleteReview" parameterClass="String">
+		delete from review
+		where book_id=#book_id#
+	</delete>
+	
+	<delete id="deleteReview2" parameterClass="int">
+		delete from review
+		where rev_no=#rev_no#
+	</delete>
+	
+	<update id="updateReview" parameterClass="reviewvo">
+		update review set rev_content=#rev_content#, rev_rating=#rev_rating#, rev_date = to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss') where book_id=#book_id#
+	</update>
+	
+	<select id="getThisReview" resultClass="reviewvo" parameterClass="String">
+		 select * from review where book_id = #book_id#
+	</select>
+	
+	<select id="getReviewView" resultClass="rvvo2" parameterClass="String">
+		select replace(b.mem_name,substr(b.mem_name,2,1),'*') as mem_name,
+		a.rev_content, a.rev_rating, substr(a.rev_date, 1, 10) as rev_date
+		from review a, member b, bookmovie c, mschedule d, smovie e, movie f
+		where b.mem_id = c.mem_id
+		and a.book_id = c.book_id
+		and d.show_no = c.show_no
+		and e.smovie_no = d.smovie_no
+		and e.movie_id = f.movie_id
+		and e.movie_id = #movie_id#
+	</select>
+
+</sqlMap>	

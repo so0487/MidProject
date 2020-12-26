@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bookgenCnt">
+	
+	<select id="getbookcount" resultClass="int" parameterClass="String">
+	
+		select count(*)
+		from bookmovie a, movie b, smovie c, mschedule d, member e
+		where a.show_no = d.show_no
+		and b.movie_id = c.movie_id
+		and d.smovie_no = c.smovie_no
+		and a.mem_id = e.mem_id
+		and b.movie_name = #movie_name#
+		
+	</select>
+	
+	
+	
+	
+	
+	<select id="bookgenCnt" resultClass="String">
+	       
+        select  DISTINCT  movie_name
+        from mschedule a, smovie b, movie c
+        where b.SMOVIE_NO =a.smovie_no
+        and b.movie_id = c.movie_id
+        
+	</select>
+	
+
+</sqlMap>

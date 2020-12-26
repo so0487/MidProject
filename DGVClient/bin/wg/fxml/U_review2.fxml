@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="394.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_reviewController2">
+   <top>
+      <AnchorPane prefHeight="182.0" prefWidth="640.0" style="-fx-border-color: #c7c9c8; -fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="602.0" style="-fx-background-color: #545252;">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="314.0" text="평점과 리뷰를 남겨주세요*^^*" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="200.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator layoutY="109.0" prefHeight="0.0" prefWidth="593.0" />
+            <Label layoutX="146.0" layoutY="134.0" text="평점">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <HBox fx:id="starHbox" layoutX="193.0" layoutY="119.0">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fx:id="w0" fitHeight="50.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w1" fitHeight="50.0" fitWidth="50.0" layoutX="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w2" fitHeight="50.0" fitWidth="43.0" layoutX="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w3" fitHeight="50.0" fitWidth="50.0" layoutX="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w4" fitHeight="50.0" fitWidth="43.0" layoutX="104.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w5" fitHeight="50.0" fitWidth="50.0" layoutX="130.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w6" fitHeight="50.0" fitWidth="43.0" layoutX="156.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w7" fitHeight="50.0" fitWidth="50.0" layoutX="182.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w8" fitHeight="50.0" fitWidth="43.0" layoutX="208.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="w9" fitHeight="50.0" fitWidth="50.0" layoutX="234.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/whiteStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y0" fitHeight="50.0" fitWidth="43.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y2" fitHeight="50.0" fitWidth="43.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y4" fitHeight="50.0" fitWidth="43.0" layoutX="105.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y6" fitHeight="50.0" fitWidth="43.0" layoutX="159.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y8" fitHeight="50.0" fitWidth="43.0" layoutX="209.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarLeft.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y1" fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y3" fitHeight="50.0" fitWidth="50.0" layoutX="77.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y5" fitHeight="50.0" fitWidth="50.0" layoutX="129.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y7" fitHeight="50.0" fitWidth="50.0" layoutX="183.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="y9" fitHeight="50.0" fitWidth="50.0" layoutX="233.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../img/yellowStarRight.PNG" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Label layoutX="14.0" layoutY="84.0" text="예매ID:" />
+            <Label fx:id="lblBookId" layoutX="58.0" layoutY="84.0" prefHeight="15.0" prefWidth="72.0" />
+            <Label fx:id="lbl_score" layoutX="465.0" layoutY="126.0" prefHeight="38.0" prefWidth="52.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_movie_name" alignment="CENTER" layoutX="82.0" layoutY="65.0" prefHeight="38.0" prefWidth="482.0" text="영화제목">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnMod" mnemonicParsing="false" onAction="#btnModClick" prefHeight="24.0" prefWidth="70.0" style="-fx-background-color: red; -fx-background-radius: 5;" text="수정" textFill="WHITE" visible="false">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnDel" mnemonicParsing="false" onAction="#btnDelClick" prefHeight="16.0" prefWidth="70.0" style="-fx-background-color: none; -fx-border-width: 1; -fx-border-color: red; -fx-border-radius: 5;" text="삭제" textFill="RED" visible="false">
+               <HBox.margin>
+                  <Insets right="235.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#dataRun" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: red; -fx-background-radius: 5;" text="확인" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="15.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnCxl" mnemonicParsing="false" onAction="#btnCxlClick" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: none; -fx-border-width: 1; -fx-border-color: red; -fx-border-radius: 5;" text="취소" textFill="RED">
+               <HBox.margin>
+                  <Insets bottom="10.0" right="30.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="txtRevContent" prefHeight="0.0" prefWidth="550.0" promptText="리뷰를 작성해주세요">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

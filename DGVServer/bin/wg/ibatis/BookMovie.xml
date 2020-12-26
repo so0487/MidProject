@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bookmovie">
+<!-- 	<resultMap id="BookMovieViewMap" class="wg.vo.BookMovieViewVO">
+		<result property="book_id" column="book_id" javaType="string" jdbcType="VARCHAR" />
+		<result property="book_time" column="book_time" javaType="string" jdbcType="VARCHAR" />
+		<result property="movie_poster" column="movie_poster" javaType="string" jdbcType="VARCHAR" />
+		<result property="show_time" column="show_time" javaType="string" jdbcType="VARCHAR" />
+		<result property="seatIdList" column="{book_id=book_detail.BOOK_ID}" javaType="java.util.ArrayList"  select="bookmovie.getSeatschList"/>
+	</resultMap>
+	
+	<resultMap id="seatschMap" class="wg.vo.SeatSchVO">
+		<result property="sseat_no" column="sseat_no" javaType="int" jdbcType="NUMBER" />
+		<result property="seat_id" column="seat_id" javaType="string" jdbcType="VARCHAR" />
+		<result property="theater_id" column="theater_id" javaType="string" jdbcType="VARCHAR" />
+		<result property="show_no" column="show_no" javaType="int" jdbcType="NUMBER" />
+		<result property="sseat_status" column="sseat_status" javaType="string" jdbcType="VARCHAR" />
+	</resultMap> -->
+	
+	<select id="getAllBookMovieView" resultClass="bmviewvo" parameterClass="String">
+		select  e.book_id,
+		        e.book_time,
+		        c.movie_poster,
+		        c.movie_name,
+		        d.show_time,
+		        b.theater_name,
+		        f.pay_price,
+		        f.pay_refund,
+		        f.pay_no
+		from smovie a
+		left outer join theater b
+		on a.theater_id=b.theater_id
+		left outer join movie c
+		on a.movie_id=c.movie_id
+		right outer join mschedule d
+		on a.smovie_no=d.smovie_no
+		right outer join bookmovie e
+		on d.show_no=e.show_no
+		left outer join pay f
+		on e.book_id=f.book_id
+		left outer join member g
+		on e.mem_id=g.mem_id
+		where e.mem_id=#mem_id#
+		order by 2
+	</select>
+	
+	<select id="getAllBook" resultClass="bmviewvo" >
+		select  e.book_id,
+		        e.book_time,
+		        c.movie_poster,
+		        c.movie_name,
+		        d.show_time,
+		        b.theater_name,
+		        f.pay_price,
+		        f.pay_refund
+		from smovie a
+		left outer join theater b
+		on a.theater_id=b.theater_id
+		left outer join movie c
+		on a.movie_id=c.movie_id
+		right outer join mschedule d
+		on a.smovie_no=d.smovie_no
+		right outer join bookmovie e
+		on d.show_no=e.show_no
+		left outer join pay f
+		on e.book_id=f.book_id
+		left outer join member g
+		on e.mem_id=g.mem_id
+		
+	</select>
+	
+	
+	
+	<select id="getSeat_idList" parameterClass="string" resultClass="string">
+		select  seatsch.seat_id as "seat_id"
+		from seatsch, book_detail
+		where seatsch.SSEAT_NO = book_detail.SSEAT_NO
+		and book_detail.BOOK_ID=#book_id#     
+	</select>
+	
+	<insert id="insertBookMovie" parameterClass="bmvo">
+		insert into bookmovie values(#book_id#, #mem_id#, #show_no#, #book_qty#, to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'))
+	</insert>
+	
+	<delete id="deleteBookMovie" parameterClass="String">
+		delete from bookmovie where book_id = #book_id#
+	</delete>
+	
+	<select id="getMaxBook_id" resultClass="String">
+		select max(book_id) from bookmovie
+	</select>
+	
+	
+
+
+</sqlMap>

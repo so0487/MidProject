@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="onoff">
+	
+	<insert id="insertOnOff" parameterClass="String">
+	insert into onoff(on_no, mem_id, on_time, off_time) values (
+ 	onoff_seq.nextVal, #mem_id#, to_char(sysdate, 'yyyy-mm-dd hh:mi:ss'), '퇴근안함')
+	
+	</insert>
+	
+	<select id="getCountOnOff" parameterClass="String" resultClass="int">
+	select count(*) cnt from onoff where mem_id = #mem_id# and on_time like to_char(sysdate,'yyyy-mm-dd') || '%'
+	
+	</select>
+	
+	 <select id="getAllOnOff" resultClass="oovvo">
+		
+		 select a.on_no, b.mem_id, b.mem_name, a.on_time, a.off_time from onoff a, member b where a.mem_id = b.mem_id and b.mem_lev = 2
+		
+		 </select>
+		 
+		 
+		 <delete id="deleteOnOff" parameterClass="int">
+		delete from onoff where on_no=$on_no$
+		</delete>
+	
+		
+		 <update id="updateOnOff" parameterClass="oovvo2">
+		 update onoff set on_time = #on_time#, off_time = #off_time#
+		  where on_no = $on_no$
+		 </update>
+		 
+		  <update id="updateOff" parameterClass="String">
+		 update onoff set off_time = to_char(sysdate, 'yyyy-mm-dd hh:mi:ss')
+		  where mem_id = #mem_id# and on_time like to_char(sysdate,'yyyy-mm-dd') || '%'
+		 </update>
+		 
+	
+</sqlMap>	

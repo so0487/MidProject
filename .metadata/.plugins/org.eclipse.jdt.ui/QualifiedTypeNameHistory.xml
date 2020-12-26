@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="wg.vo.SnackSetVO"/>
+<fullyQualifiedTypeName name="util.AlertUtil"/>
+<fullyQualifiedTypeName name="java.rmi.registry.Registry"/>
+<fullyQualifiedTypeName name="java.rmi.registry.LocateRegistry"/>
+<fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="javafx.scene.input.MouseEvent"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="javafx.beans.value.ChangeListener"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="javafx.scene.Parent"/>
+<fullyQualifiedTypeName name="javafx.scene.Scene"/>
+<fullyQualifiedTypeName name="javax.xml.namespace.QName"/>
+<fullyQualifiedTypeName name="wg.vo.QuestionVO"/>
+<fullyQualifiedTypeName name="wg.question.service.IQuestionService"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="wg.main.M_bookMemCntController"/>
+<fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
+<fullyQualifiedTypeName name="java.util.Observable"/>
+<fullyQualifiedTypeName name="com.itextpdf.text.pdf.PdfStructTreeController.returnType"/>
+<fullyQualifiedTypeName name="wg.bookMemberCnt.dao.IBookMemberCntDao"/>
+<fullyQualifiedTypeName name="wg.bookGenderCnt.service.IBookGenderCntService"/>
+<fullyQualifiedTypeName name="com.ibatis.sqlmap.client.SqlMapClient"/>
+<fullyQualifiedTypeName name="util.BuildSqlMapClient"/>
+<fullyQualifiedTypeName name="wg.bookGenderCnt.dao.IBookGenderCntDao"/>
+<fullyQualifiedTypeName name="wg.bookGenderCnt.dao.BookGenderCntDaoImpl"/>
+<fullyQualifiedTypeName name="wg.bookGenderCnt.service.BookGenderCntServiceImpl"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ComboBox"/>
+<fullyQualifiedTypeName name="javafx.util.Callback"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ListCell"/>
+<fullyQualifiedTypeName name="java.rmi.RemoteException"/>
+<fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
+<fullyQualifiedTypeName name="wg.vo.BookMemberCntVO"/>
+<fullyQualifiedTypeName name="wg.movie.service.IMovieService"/>
+<fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="wg.vo.MovieVO"/>
+</qualifiedTypeNameHistroy>

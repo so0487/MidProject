@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.M_staffController">
+   <top>
+      <AnchorPane prefHeight="112.0" prefWidth="960.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <children>
+          <Label layoutX="76.0" layoutY="27.0" text="아이디" />
+            <TextField fx:id="txtId" disable="true" layoutX="121.0" layoutY="22.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label layoutX="76.0" layoutY="107.0" text="이름" />
+            <TextField fx:id="txtName" disable="true" layoutX="121.0" layoutY="102.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label layoutX="321.0" layoutY="25.0" text="성별" />
+            <Label layoutX="308.0" layoutY="101.0" text="이메일" />
+            <TextField fx:id="txtEmail" disable="true" layoutX="366.0" layoutY="97.0" prefHeight="25.0" prefWidth="160.0" />
+            <Button fx:id="btnOk" disable="true" layoutX="865.0" layoutY="30.0" mnemonicParsing="false" onAction="#dataRun" prefHeight="40.0" prefWidth="40.0" text="확인" />
+            <Button fx:id="btnCancel" disable="true" layoutX="865.0" layoutY="79.0" mnemonicParsing="false" onAction="#dataCancel" prefHeight="40.0" prefWidth="40.0" text="취소" />
+            <Label contentDisplay="CENTER" layoutX="571.0" layoutY="13.0" prefHeight="30.0" prefWidth="53.0" text="전화번호" textAlignment="CENTER" />
+            <RadioButton fx:id="radioWoman" disable="true" layoutX="384.0" layoutY="25.0" mnemonicParsing="false" text="여자">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioMan" disable="true" layoutX="446.0" layoutY="25.0" mnemonicParsing="false" text="남자" toggleGroup="$gender" />
+            <TextField fx:id="txtTel" disable="true" layoutX="635.0" layoutY="16.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label contentDisplay="CENTER" layoutX="553.0" layoutY="81.0" prefHeight="30.0" prefWidth="71.0" text="나만의 질문" textAlignment="CENTER" />
+            <Label contentDisplay="CENTER" layoutX="554.0" layoutY="117.0" prefHeight="30.0" prefWidth="71.0" text="나만의 답" textAlignment="CENTER" />
+            <TextField fx:id="txtAnswer" disable="true" layoutX="636.0" layoutY="120.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label layoutX="309.0" layoutY="59.0" text="생년월일" />
+            <TextField fx:id="txtBir" disable="true" layoutX="367.0" layoutY="55.0" prefHeight="25.0" prefWidth="160.0" />
+            <Label contentDisplay="CENTER" layoutX="584.0" layoutY="48.0" prefHeight="30.0" prefWidth="31.0" text="주소" textAlignment="CENTER" />
+            <TextField fx:id="txtAddr" disable="true" layoutX="634.0" layoutY="51.0" prefHeight="25.0" prefWidth="160.0" />
+            <ComboBox fx:id="cmbHint" disable="true" layoutX="635.0" layoutY="85.0" prefHeight="23.0" prefWidth="161.0" />
+            <Label layoutX="70.0" layoutY="67.0" text="비밀번호" />
+            <TextField fx:id="txtPw" disable="true" layoutX="121.0" layoutY="63.0" prefHeight="25.0" prefWidth="160.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane prefWidth="960.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="StaffTable" onMouseClicked="#tableClick" prefHeight="700.0" prefWidth="960.0" style="-fx-border-color: white;">
+              <columns>
+                <TableColumn fx:id="idCol" prefWidth="84.0" text="직원ID" />
+                <TableColumn fx:id="nameCol" prefWidth="81.0" text="직원이름" />
+                  <TableColumn fx:id="genCol" prefWidth="61.0" text="직원성별" />
+                  <TableColumn fx:id="birCol" prefWidth="111.0" text="직원생년월일" />
+                  <TableColumn fx:id="emailCol" prefWidth="140.0" text="직원이메일" />
+                  <TableColumn fx:id="telCol" prefWidth="131.0" text="직원전화번호" />
+                  <TableColumn fx:id="addrCol" prefWidth="112.0" text="직원주소" />
+                  <TableColumn fx:id="hintCol" prefWidth="129.0" text="직원의힌트질문" />
+                  <TableColumn fx:id="answerCol" prefWidth="82.0" text="직원의답" />
+              </columns>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox onDragDetected="#dataAdd" prefHeight="35.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#dataAdd" prefHeight="23.0" prefWidth="70.0" text="직원등록">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#dataEdit" prefHeight="20.0" prefWidth="70.0" text="수정">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnDel" mnemonicParsing="false" onAction="#dataDel" prefHeight="20.0" prefWidth="70.0" text="삭제">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

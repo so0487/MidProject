@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org//dtd/sql-map-2.dtd">
+<sqlMap namespace="movie">
+	<insert id="insertMovie" parameterClass="mvo">
+		insert into movie values (#movie_id#, #gen_id#, #movie_name#, #movie_summary#, #movie_poster#, 
+		#movie_trailer#, #movie_runningtime#, #movie_adult#, #movie_release#, #movie_end#, #movie_director#, #movie_actor#)
+	</insert>
+	
+	<delete id="deleteMovie" parameterClass="String">
+		delete from movie where movie_id = #movie_id#
+	</delete>
+	
+	<update id="updateMovie" parameterClass="mvo">
+		update movie set gen_id=#gen_id#, movie_name=#movie_name#, movie_summary=#movie_summary#, movie_poster=#movie_poster#, 
+		movie_trailer=#movie_trailer#, movie_runningtime=#movie_runningtime#, movie_adult=#movie_adult#, movie_release=#movie_release#, 
+		movie_end=#movie_end#, movie_director=#movie_director#, movie_actor=#movie_actor# where movie_id=#movie_id#
+	</update>
+	
+	<select id="getAllMovie" resultClass="mvo">
+		select distinct a.movie_id, a.gen_id, a.movie_name, a.movie_summary, a.movie_poster, a.movie_trailer, a.movie_runningtime, a.movie_adult, a.movie_release, a.movie_end, a.movie_director, a.movie_actor  
+		from movie a, smovie b where a.movie_id = b.movie_id order by 3
+	</select>
+	
+	<select id="getMaxMovie_id" resultClass="String">
+		select max(movie_id) from movie
+	</select>
+	
+	<select id="getMovieCount" parameterClass="map" resultClass="int">
+		select count(DISTINCT a.movie_id) from movie a, genre b
+		<dynamic prepend="where">
+			<isNotEmpty property="searchField" prepend="and">
+				$searchField$ like '%' || upper(#searchWord#) || '%'
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getMovieView" resultClass="mvo2" parameterClass="map">
+		select * from 
+		(select rownum as rnum, a.* from 
+			(
+				select b.gen_id, b.gen_name, a.movie_id, a.movie_name, a.movie_summary, a.movie_runningtime, a.movie_adult, a.movie_release, a.movie_end, a.movie_poster, a.movie_trailer, a.movie_director, a.movie_actor 
+				from movie a, genre b
+				where b.gen_id = a.gen_id
+				<dynamic>
+					<isNotEmpty property="searchField" prepend="and">
+						$searchField$ like '%' || upper(#searchWord#) || '%'
+					</isNotEmpty>
+				</dynamic>
+			) a
+		where rownum &lt;= #end#
+		)
+		where rnum &gt; #start#
+	</select>
+	
+	<select id="uMovieName" resultClass="mvo" parameterClass="String">
+		select * from movie where movie_name like '%' || #movie_name# || '%'
+	</select>
+	
+	<select id="movieSchList" resultClass="mvo">
+		select * from movie where movie_release > sysdate
+	</select>
+	
+	
+	<select id="getMovieAllView" resultClass="mvo2">
+	</select>
+	
+	<select id="uMovieName2" resultClass="int" parameterClass="String">
+		select count(distinct movie_id) from smovie where movie_id = #movie_id# 
+	</select>
+	
+	<select id="movieAdultCheck" resultClass="String" parameterClass="String">
+		select movie_adult from movie where movie_name = #movie_name#
+	</select>
+	
+</sqlMap>
+

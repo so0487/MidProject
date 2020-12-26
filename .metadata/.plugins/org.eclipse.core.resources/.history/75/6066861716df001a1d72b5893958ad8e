@@ -1,0 +1,356 @@
+package wg.main;
+
+
+import java.io.IOException;
+import java.net.URL;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import util.AlertUtil;
+import wg.lnf.service.ILnFService;
+import wg.vo.LnFVO;
+import wg.vo.MemberVO;
+
+public class S_lnfDetailController {
+
+	@FXML
+	private ResourceBundle resources;
+
+	@FXML
+	private URL location;
+
+	@FXML
+	private TextField txtField_name;
+
+	@FXML
+	private Button btnList;
+
+	@FXML
+	private TextField txtField_memId;
+
+	@FXML
+	private TextField txtField_writer;
+
+	@FXML
+	private TextField txtField_no;
+
+	@FXML
+	private Button btnOK;
+
+	@FXML
+	private Button btnCancel;
+
+	@FXML
+	private Button btnAdd;
+
+	@FXML
+	private Button btnEdit;
+
+	@FXML
+	private Button btnDel;
+
+	@FXML
+	private TextField txtField_time;
+
+	@FXML
+	private TextField txtField_spot;
+
+	@FXML
+	private ComboBox<String> cmb_col;
+
+	@FXML
+	private ImageView img;
+
+
+	@FXML
+	private TextField txtField_imgPath;
+
+
+	@FXML
+	void btnAddClick(MouseEvent event) {
+		int lnf_no = 0;
+		String writer = "s005";	//MemberVO정보 가져오기(추후)
+		String today = "";
+		//String writer = member.getMem_id();
+
+
+
+		Calendar calendar = Calendar.getInstance();
+		java.util.Date date = calendar.getTime();
+		today = (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
+
+
+		try {
+			lnf_no = service.getMax_lnf_no();
+			txtField_no.setText(String.valueOf(lnf_no));
+			txtField_writer.setText(writer);
+			txtField_time.setText(today);
+
+			txtField_imgPath.clear();
+			txtField_imgPath.setDisable(false);
+
+			txtField_memId.clear();
+			txtField_memId.setDisable(false);
+
+			txtField_spot.clear();
+			txtField_spot.setDisable(false);
+
+			txtField_imgPath.clear();
+			txtField_imgPath.setDisable(false);
+
+
+
+
+
+			txtField_name.requestFocus();
+
+
+			btnOK.setDisable(false);
+			btnCancel.setDisable(false);
+			strWords="add";
+
+
+			btnAdd.setDisable(true);
+			btnEdit.setDisable(true);
+			btnDel.setDisable(true);
+
+
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+
+	}
+
+	@FXML
+	void btnCancelClick(MouseEvent event) {
+		btnAdd.setDisable(false);
+		btnEdit.setDisable(false);
+		btnDel.setDisable(false);
+
+
+		btnOK.setDisable(true);
+		btnCancel.setDisable(true);
+	}
+
+	@FXML
+	void btnDelClick(MouseEvent event) {
+		String lnf_no = txtField_no.getText();
+
+		int cnt;
+
+		try {
+			cnt = service.deleteLnf(lnf_no);
+
+			if(cnt>0) {
+				AlertUtil.infoMsg("작업결과", "삭제 성공");
+
+				txtField_imgPath.clear();
+				txtField_memId.clear();
+				txtField_name.clear();
+				txtField_no.clear();
+				txtField_spot.clear();
+				txtField_time.clear();
+				txtField_writer.clear();
+				txtField_imgPath.clear();
+
+			}else {
+				AlertUtil.warnMsg("작업결과", "삭제를 실패했습니다.");
+			}
+
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void btnEditClick(MouseEvent event) {
+		String not_no = txtField_no.getText();
+
+		txtField_imgPath.setDisable(false);
+		txtField_memId.setDisable(false);
+		txtField_name.setDisable(false);
+		txtField_spot.setDisable(false);
+
+		btnAdd.setDisable(true);
+		btnEdit.setDisable(true);
+		btnDel.setDisable(true);
+
+
+		btnOK.setDisable(false);
+		btnCancel.setDisable(false);
+
+
+
+		strWords = "edit";	
+
+	}
+
+	@FXML
+	void btnListClick(MouseEvent event) {
+		getAllLnfList();
+	}
+
+	@FXML
+	void btnOKClick(MouseEvent event) {
+		String lnf_no = txtField_no.getText();
+		String lnf_writer = txtField_writer.getText();
+		String lnf_id = txtField_memId.getText();
+		String lnf_photo = txtField_imgPath.getText();
+		String lnf_name = txtField_name.getText();
+		String lnf_spot = txtField_spot.getText();
+		String lnf_time = txtField_time.getText();
+
+
+
+		if(lnf_name.isEmpty()) {
+			AlertUtil.warnMsg("입력오류", "분실물 제목을 입력하세요");
+			return;
+		}
+
+
+
+		LnFVO lnfVo = new LnFVO();
+
+
+
+		lnfVo.setLnf_name(lnf_name);
+		lnfVo.setLnf_photo(lnf_photo);
+		lnfVo.setLnf_no(Integer.parseInt(lnf_no));
+		lnfVo.setLnf_spot(lnf_spot);
+		lnfVo.setLnf_time(lnf_time);
+		lnfVo.setLnf_writer(lnf_writer);
+		lnfVo.setMem_id(lnf_id);
+
+
+
+
+		if("add".equals(strWords)) {
+			try {
+				int	cnt = service.insertLnf(lnfVo);
+				if(cnt>0) {
+					AlertUtil.warnMsg("작업결과", "추가 성공");
+
+				}else {
+					AlertUtil.warnMsg("작업결과", "추가실패");
+				}
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if("edit".equals(strWords)) {
+			try {
+
+				int	cnt = service.updateLnf(lnfVo);
+
+
+				if(cnt>0) {
+
+					AlertUtil.warnMsg("작업결과", "수정 성공");
+
+
+				}else {
+					AlertUtil.warnMsg("작업결과", "수정실패");
+				}
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		getAllLnfList();
+		
+		txtField_imgPath.clear();
+		txtField_memId.clear();
+		txtField_name.clear();
+		txtField_spot.clear();
+		txtField_time.clear();
+		
+		btnOK.setDisable(true);
+		btnCancel.setDisable(true);
+		
+
+	}
+
+	private ILnFService service;
+
+	private LnFVO vo;
+
+	public LnFVO getVo() {
+		return vo;
+	}
+
+
+	public void setVo(LnFVO vo) {
+		this.vo = vo;
+
+
+		txtField_no.setText(String.valueOf(vo.getLnf_no()));
+		txtField_writer.setText(vo.getLnf_writer());
+		txtField_memId.setText(vo.getMem_id());
+		txtField_time.setText(vo.getLnf_time());
+		txtField_spot.setText(vo.getLnf_spot());
+		txtField_name.setText(vo.getLnf_name());
+		txtField_imgPath.setText(vo.getLnf_photo());
+		cmb_col.setValue(vo.getLnf_collect());
+
+	}
+
+
+
+	private String strWords = "";
+	private ObservableList<LnFVO> lnfList;
+	MemberVO member = new MemberVO();
+
+
+	private Map<String, String>searchMap;
+
+
+
+
+	@FXML
+	void initialize() throws RemoteException{
+		Registry reg = null;
+
+		try {
+			reg = LocateRegistry.getRegistry("localhost",9988);
+			service = (ILnFService) reg.lookup("lnfService");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+	private void getAllLnfList() {
+		try {
+		FXMLLoader loader2 = new FXMLLoader(S_centerMain.class.getResource("../fxml/S_center.fxml"));
+			Parent top = loader2.load();
+			AnchorPane root = (AnchorPane) btnAdd.getScene().getRoot();
+			BorderPane outerbox = (BorderPane) root.getChildren().get(0);
+			outerbox.setCenter(top);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}

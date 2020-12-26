@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="seatsch">
+
+	<select id="seatSchforAShow" resultClass="ssvo" parameterClass="int">
+		select * from seatsch where show_no = #show_no#
+	</select>
+	
+	<select id="getSseat_no" resultClass="int" parameterClass="Map">
+		select sseat_no from seatsch where seat_id = #seat_id# and show_no = #show_no#
+	</select>
+	
+	<select id="getOpenSeatNum" resultClass="int" parameterClass="int">
+		select count(*)
+		from seatsch
+		where show_no = #show_no#
+		and sseat_status = 'N'
+	</select>
+	
+	<select id="getSeatNum" resultClass="int" parameterClass="int">
+		select count(*)
+		from seatsch
+		where show_no = #show_no#
+	</select>
+	
+	<update id="updateToY" parameterClass="int">
+		update seatsch set sseat_status = 'Y' where sseat_no = #sseat_no# 
+	</update>
+	
+	<insert id="insertSseat" parameterClass="ssvo">
+		insert into seatsch(sseat_no, seat_id, theater_id, show_no, sseat_status)
+		 values (seatsch_seq.nextVal, #seat_id#, #theater_id#, $show_no$, #sseat_status#)
+	</insert>
+	
+	
+	<update id="updateToN" parameterClass="String">
+		update seatsch set sseat_status = 'N' where sseat_no in 
+		(select sseat_no from book_detail a, bookmovie b where a.book_id = b.book_id and a.book_id = #book_id#)
+	</update>
+	
+</sqlMap>

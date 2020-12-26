@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="832.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.G_registerController">
+   <children>
+      <ScrollPane prefHeight="837.0" prefWidth="1200.0" style="-fx-background-color: white;">
+         <content>
+            <AnchorPane prefWidth="1190.0" style="-fx-background-color: white;">
+               <children>
+                  <VBox prefHeight="832.0" prefWidth="1159.0">
+                     <children>
+                        <AnchorPane prefHeight="826.0" prefWidth="1180.0">
+                           <children>
+                              <Label layoutX="125.0" layoutY="27.0" text="회원가입" textFill="#350d0d">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnIdChk" layoutX="582.0" layoutY="83.0" mnemonicParsing="false" onAction="#dataIdChk" prefHeight="32.0" prefWidth="70.0" style="-fx-background-color: #333; -fx-border-color: #333; -fx-border-width: 2; -fx-border-radius: 5;" text="중복확인" textFill="WHITE" />
+                              <Button fx:id="btnTelChk" layoutX="582.0" layoutY="625.0" mnemonicParsing="false" onAction="#dataTelChk" prefHeight="32.0" prefWidth="70.0" style="-fx-background-color: #333; -fx-border-color: #403d3d; -fx-border-width: 2; -fx-border-radius: 5;" text="중복확인" textFill="WHITE" />
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="238.0" layoutY="22.0">
+                                 <image>
+                                    <Image url="@../img/icons8_edit_profile_64px_1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="287.0" layoutY="22.0">
+                                 <image>
+                                    <Image url="@../img/icons8_registration_64px_1.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="btnEmailChk" layoutX="582.0" layoutY="385.0" mnemonicParsing="false" onAction="#dataEmailChk" prefHeight="32.0" prefWidth="70.0" style="-fx-background-color: #333; -fx-border-color: #403d3d; -fx-border-width: 2; -fx-border-radius: 5;" text="중복확인" textFill="WHITE" />
+                              <Separator layoutY="70.0" prefHeight="1.0" prefWidth="1190.0" />
+                              <VBox layoutX="863.0" layoutY="121.0" />
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="71.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="아이디" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="131.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="이름" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="191.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="비밀번호" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="251.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="비밀번호 확인" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="311.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="성별" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="371.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="이메일" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="431.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="주소" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="491.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="나만의 질문 입력" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="611.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="휴대폰번호" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="551.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="나만의 답 입력" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label contentDisplay="CENTER" layoutX="118.0" layoutY="671.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" text="생년월일" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="txtId" layoutX="342.0" layoutY="83.0" prefHeight="32.0" prefWidth="218.0" promptText="예) aaa1000" />
+                              <TextField fx:id="txtName" layoutX="342.0" layoutY="145.0" prefHeight="32.0" prefWidth="218.0" />
+                              <TextField fx:id="txtTel" layoutX="342.0" layoutY="625.0" prefHeight="32.0" prefWidth="218.0" promptText="예) 010-1234-5678" />
+                              <TextField fx:id="txtEmail" layoutX="342.0" layoutY="385.0" prefHeight="32.0" prefWidth="218.0" promptText="예) sky1214@naver.com" />
+                              <TextField fx:id="txtAddr" layoutX="342.0" layoutY="446.0" prefHeight="32.0" prefWidth="218.0" />
+                              <ComboBox fx:id="cmbHint" layoutX="342.0" layoutY="507.0" prefHeight="32.0" prefWidth="218.0" promptText="질문을 선택해주세요 " />
+                              <TextField fx:id="txtAnswer" layoutX="342.0" layoutY="565.0" prefHeight="32.0" prefWidth="218.0" />
+                              <PasswordField fx:id="txtPw" layoutX="342.0" layoutY="205.0" prefHeight="32.0" prefWidth="218.0" promptText="예) qwer1234!" />
+                              <PasswordField fx:id="txtPwChk" layoutX="342.0" layoutY="266.0" prefHeight="32.0" prefWidth="218.0" />
+                              <TextField fx:id="txtBir" layoutX="342.0" layoutY="685.0" prefHeight="32.0" prefWidth="218.0" promptText="예) 960826" />
+                              <HBox layoutX="348.0" layoutY="325.0" prefHeight="32.0" prefWidth="218.0">
+                                 <children>
+                                    <RadioButton fx:id="radioWoman" mnemonicParsing="false" prefHeight="32.0" prefWidth="218.0" text="여자">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="gender" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="radioMan" mnemonicParsing="false" prefHeight="32.0" prefWidth="218.0" text="남자" toggleGroup="$gender" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="btnOk" layoutX="584.0" layoutY="754.0" mnemonicParsing="false" onAction="#dataRun" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333; -fx-border-color: #333; -fx-border-width: 2; -fx-border-radius: 5;" text="등록" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCancel" layoutX="417.0" layoutY="754.0" mnemonicParsing="false" onAction="#dataCancel" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: #403d3d; -fx-border-width: 1; -fx-border-radius: 5;" text="취소" textFill="#1e0000">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Separator layoutY="730.0" prefHeight="1.0" prefWidth="1190.0" />
+                              <Separator layoutX="118.0" layoutY="191.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="251.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="311.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="131.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="371.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="431.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="491.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="551.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="611.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator layoutX="118.0" layoutY="671.0" prefHeight="1.0" prefWidth="1000.0" />
+                              <Separator prefHeight="1.0" prefWidth="1190.0" />
+                              <Label layoutX="696.0" layoutY="694.0" prefHeight="20.0" prefWidth="217.0" text="생년월일을 6자리 형태로 입력해주세요 " textFill="#837b7b" />
+                              <Label layoutX="693.0" layoutY="631.0" prefHeight="20.0" prefWidth="275.0" text="010-1234-5678 형식으로 알맞게 입력해주세요 " textFill="#837b7b" />
+                              <Label layoutX="662.0" layoutY="80.0" prefHeight="19.0" prefWidth="351.0" text="아이디의 첫문자는 영문자로 시작, 4~10자리 이내로 작성하시오 " textFill="#837b7b" />
+                              <Label layoutX="666.0" layoutY="100.0" prefHeight="15.0" prefWidth="99.0" text="(특수문자 불가)" textFill="#837b7b" />
+                              <Label layoutX="671.0" layoutY="203.0" prefHeight="19.0" prefWidth="434.0" text="비밀번호는 영문자,숫자,특수문자를 조합하여   8~12자리 이내로 생성해주세요" textFill="#837b7b" />
+                              <Label layoutX="672.0" layoutY="224.0" prefHeight="15.0" prefWidth="190.0" text="(영문자,숫자,특수문자 모두 포함)" textFill="#837b7b" />
+                              <Label layoutX="672.0" layoutY="390.0" prefHeight="19.0" prefWidth="199.0" text="이메일 형식을 알맞게 입력해주시오 " textFill="#837b7b" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</StackPane>

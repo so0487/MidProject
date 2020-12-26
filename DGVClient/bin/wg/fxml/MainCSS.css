@@ -1,0 +1,5 @@
+#left_box{
+	-fx-border-style:solid;
+	-fx-border-width:2;
+	-fx-border-color:white #68888f white white;
+}

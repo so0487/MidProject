@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="207.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_eventOneController">
+   <children>
+      <AnchorPane prefHeight="300.0" prefWidth="244.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="eventImg" fitHeight="235.0" fitWidth="141.0" layoutX="40.0" layoutY="13.0" onMouseClicked="#click" />
+            <Separator layoutX="35.0" layoutY="281.0" prefHeight="12.0" prefWidth="141.0" />
+            <Label fx:id="eventName" layoutX="35.0" layoutY="260.0" prefHeight="21.0" prefWidth="206.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

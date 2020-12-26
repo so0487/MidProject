@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="609.0" prefWidth="994.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_infoController">
+   <children>
+      <BorderPane fx:id="outerBox" prefHeight="637.0" prefWidth="716.0">
+         <center>
+            <AnchorPane prefHeight="616.0" prefWidth="808.0" style="-fx-background-color: white;">
+               <children>
+                  <VBox layoutY="-3.0" prefHeight="619.0" prefWidth="693.0">
+                     <children>
+                        <AnchorPane prefHeight="564.0" prefWidth="650.0">
+                           <children>
+                              <BorderPane fx:id="outerBox" layoutX="18.0" layoutY="9.0" prefHeight="529.0" prefWidth="614.0">
+                                 <top>
+                                    <AnchorPane prefHeight="482.0" prefWidth="587.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Button fx:id="btnEdit" layoutX="182.0" layoutY="396.0" mnemonicParsing="false" onAction="#dataEdit" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #403d3d; -fx-border-width: 1; -fx-border-radius: 5;" text="수정" textFill="#514b4b" />
+                                          <Button fx:id="btnOk" layoutX="277.0" layoutY="396.0" mnemonicParsing="false" onAction="#dataRun" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #403d3d; -fx-border-width: 1; -fx-border-radius: 5;" text="확인" textFill="#514b4b" />
+                                          <Button fx:id="btnCancel" layoutX="367.0" layoutY="396.0" mnemonicParsing="false" onAction="#dataCancel" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #403d3d; -fx-border-width: 1; -fx-border-radius: 5;" text="취소" textFill="#514b4b" />
+                                          <Label layoutX="34.0" layoutY="173.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="이름" />
+                                          <TextField fx:id="txtName" disable="true" layoutX="141.0" layoutY="183.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <Label layoutX="34.0" layoutY="263.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="성별" />
+                                          <Label layoutX="34.0" layoutY="218.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="이메일" />
+                                          <TextField fx:id="txtEmail" disable="true" layoutX="141.0" layoutY="229.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <Label contentDisplay="CENTER" layoutX="33.0" layoutY="308.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="전화번호" textAlignment="CENTER" />
+                                          <HBox layoutX="141.0" layoutY="276.0">
+                                             <children>
+                                                <RadioButton fx:id="radioWoman" disable="true" mnemonicParsing="false" text="여자">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="gender" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="radioMan" disable="true" mnemonicParsing="false" text="남자">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="gender" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                             </children>
+                                          </HBox>
+                                          <TextField fx:id="txtTel" disable="true" layoutX="140.0" layoutY="315.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <Label contentDisplay="CENTER" layoutX="316.0" layoutY="260.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="나만의 질문" textAlignment="CENTER" />
+                                          <Label contentDisplay="CENTER" layoutX="315.0" layoutY="305.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="나만의 답" textAlignment="CENTER" />
+                                          <TextField fx:id="txtBir" disable="true" layoutX="424.0" layoutY="182.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <Label layoutX="318.0" layoutY="170.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="생년월일" />
+                                          <TextField fx:id="txtAddr" disable="true" layoutX="423.0" layoutY="226.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <Label contentDisplay="CENTER" layoutX="317.0" layoutY="215.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="주소" textAlignment="CENTER" />
+                                          <TextField fx:id="txtAnswer" disable="true" layoutX="421.0" layoutY="313.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <ComboBox fx:id="cmbHint" disable="true" layoutX="422.0" layoutY="271.0" prefHeight="23.0" prefWidth="161.0" />
+                                          <Label layoutX="318.0" layoutY="125.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="비밀번호" />
+                                          <Label layoutX="34.0" layoutY="128.0" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #f8f8f8;" text="  아이디" />
+                                          <TextField fx:id="txtId" disable="true" layoutX="141.0" layoutY="138.0" prefHeight="25.0" prefWidth="160.0" />
+                                          <Separator layoutX="34.0" layoutY="125.0" prefHeight="2.0" prefWidth="551.0" />
+                                          <Separator layoutX="35.0" layoutY="173.0" prefHeight="2.0" prefWidth="551.0" />
+                                          <Separator layoutX="36.0" layoutY="217.0" prefHeight="2.0" prefWidth="551.0" />
+                                          <Separator layoutX="36.0" layoutY="263.0" prefHeight="2.0" prefWidth="551.0" />
+                                          <Separator layoutX="36.0" layoutY="306.0" prefHeight="2.0" prefWidth="551.0" />
+                                          <Separator layoutX="34.0" layoutY="354.0" prefHeight="2.0" prefWidth="551.0" />
+                                          <Label layoutX="238.0" layoutY="11.0" prefHeight="43.0" prefWidth="161.0" text="회원정보 수정">
+                                             <font>
+                                                <Font size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="195.0" layoutY="54.0" prefHeight="25.0" prefWidth="248.0" text="회원님의 소중한 정보를 안전하게 관리하세요 " />
+                                          <Label layoutX="38.0" layoutY="99.0" prefHeight="22.0" prefWidth="52.0" text="기본정보">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <PasswordField fx:id="txtPw" disable="true" layoutX="423.0" layoutY="136.0" prefHeight="25.0" prefWidth="160.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </top>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

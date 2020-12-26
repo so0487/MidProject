@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_bookMovie_lineController">
+   <children>
+      <Line endX="228.2928924560547" endY="-0.8284271955490112" startX="-100.0" stroke="#b5aeae" />
+   </children>
+</VBox>

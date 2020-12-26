@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="member">
+
+ 	<select id="idChkMember" resultClass="int" parameterClass="String">
+		
+		 select count(*) from member 
+		 where mem_id = #mem_id#
+		
+		 </select>
+		 
+		 <select id="telChkMember" resultClass="int" parameterClass="String">
+		
+		 select count(*) from member 
+		 where mem_tel = #mem_tel#
+		
+		 </select>
+		 
+		 <select id="emailChkMember" resultClass="int" parameterClass="String">
+		
+		 select count(*) from member 
+		 where mem_email = #mem_email#
+		
+		 </select>
+
+
+	<insert id="insertMember" parameterClass="memvo">
+		insert into member  
+		values (#mem_id#, #mem_pw#, #mem_name#, #mem_gen#, #mem_bir#, #mem_email#, #mem_tel#, #mem_addr#, #hint_no#, #mem_answer#, #mem_lev#, 'N') 
+	</insert>
+	
+
+	<select id="loginMember" parameterClass="String" resultClass="memvo">
+		select * from member
+		where mem_id = #mem_id#
+		and mem_state = 'N'
+	</select>
+	
+	
+	 <select id="getAllMember" resultClass="memvo">
+		
+		 select * from member 
+		 where mem_lev=3
+		
+		 </select>
+		 
+		  <select id="getAllStaff" resultClass="memvo">
+		
+		 select * from member 
+		 where mem_lev=2
+		
+		 </select>
+		 
+		 <delete id="deleteMemberXXX" parameterClass="String">
+		delete from member where mem_id=#mem_id#
+		</delete>
+		
+		<update id="deleteMember" parameterClass="String">
+			update member set mem_state = 'Y' where mem_id = #mem_id#
+		</update>
+	
+		
+		 <update id="updateMember" parameterClass="memvo">
+		 update member set  mem_name = #mem_name#, mem_pw = #mem_pw#,  mem_gen = #mem_gen#, mem_bir = #mem_bir#, mem_email = #mem_email# , mem_tel = #mem_tel#
+		 , mem_addr = #mem_addr#, hint_no = #hint_no#, mem_answer = #mem_answer#, mem_state = 'N'
+		 where mem_id = #mem_id# 
+		 </update>
+		 
+		 <update id="resetPw" parameterClass="memvo">
+		 update member set  mem_pw = #mem_pw#
+		 where mem_id = #mem_id# 
+		 </update>
+		 
+	<select id="findMember" parameterClass="String" resultClass="memvo">
+		select * from member
+		where mem_tel = #mem_tel#
+	</select>
+	
+	<select id="findHint" parameterClass="int" resultClass="hintvo">
+		select * from hint
+		where hint_no = #hint_no#
+	</select>
+	
+	<select id="searchMember" parameterClass="map" resultClass="memvo">
+		select * from member where mem_lev=3
+		<dynamic>
+			<isNotEmpty property="searchField" prepend="and">
+				$searchField$ like '%'||#searchWord#||'%'
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+</sqlMap>	

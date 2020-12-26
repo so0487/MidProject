@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org//dtd/sql-map-2.dtd">
+<sqlMap namespace="issueCoupon">
+	<insert id="insertIssue" parameterClass="icvo">
+		insert into couponissue values (couponissue_seq.nextVal, #cou_id#, #mem_id#, to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'), 'N')
+	</insert>
+	
+	<delete id="deleteIssue" parameterClass="int">
+		delete from couponissue where issue_no = #issue_no#
+	</delete>
+
+	<select id="getAllIssue" resultClass="ivo">
+		select issue_no, cou_name, mem_id, issue_time
+		from couponissue a, coupon b
+		where a.cou_id = b.cou_id
+		order by 1
+	</select>
+	
+	<update id="updateCouUse" parameterClass="int">
+		update couponissue set issue_use = 'Y' where issue_no = #issue_no#
+	</update>
+	
+</sqlMap>
+
+

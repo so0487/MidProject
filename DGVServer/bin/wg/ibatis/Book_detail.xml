@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="book_detail">
+	<insert id="insertBookDeatil" parameterClass="bdvo">
+		insert into book_detail values(book_detail_seq.nextVal, #book_id#, #sseat_no#)
+	</insert>
+	
+	<delete id="deleteBookDetail" parameterClass="String">
+		delete from book_detail where book_id = #book_id#
+	</delete>
+	
+	<select id="getBookDetail" parameterClass="String" resultClass="bdvo">
+		select * from BOOK_DETAIL where book_id = #book_id#
+	</select>
+
+</sqlMap>

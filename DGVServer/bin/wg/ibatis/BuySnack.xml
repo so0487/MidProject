@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="buysnack">
+	
+	
+	
+	
+	<select id="getBuySnack" resultClass="buysnackvo" parameterClass="String">
+		select a.set_photo,
+          a.set_id,
+          a.set_name,
+          c.pay_price,
+          c.pay_refund,
+          b.buy_id,
+          b.mem_id,
+          d.buydet_no,
+          d.buydet_qty
+          
+          from snackset a,
+          buysnack b,
+          pay c,
+          buy_detail d
+          
+          where a.SET_ID = d.SET_ID
+          and d.BUY_ID = b.BUY_ID
+          and c.BUY_ID = d.buy_id
+          and b.mem_id = #mem_id#
+	       
+	
+	
+	</select>
+	
+	<select id="getBuyAllSnack" resultClass="buysnackvo">
+		select a.set_photo,
+          a.set_id,
+          a.set_name,
+          c.pay_price,
+          c.pay_refund,
+          b.buy_id,
+          b.mem_id,
+          d.buydet_no,
+          d.buydet_qty
+          
+          from snackset a,
+          buysnack b,
+          pay c,
+          buy_detail d
+          
+          where a.SET_ID = d.SET_ID
+          and d.BUY_ID = b.BUY_ID
+          and c.BUY_ID = d.buy_id
+         
+	       
+	
+	
+	</select>
+	
+	<insert id="insertBuysnack" parameterClass="buysnackvo2">
+		insert into buysnack(buy_id, mem_id) values(#buy_id#, #mem_id#)
+	</insert>
+		
+	<select id="getMaxBuy_id" resultClass="String">
+		select max(buy_id) from buysnack
+	</select>
+	
+	
+	
+	
+	
+</sqlMap>
+
+
+
+
+

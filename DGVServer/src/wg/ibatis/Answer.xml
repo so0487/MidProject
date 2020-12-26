@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+	
+<sqlMap namespace="answer">
+	<insert id="insertAnswer" parameterClass="answervo">
+		insert into Answer(answer_no,mem_id,question_no,answer_title,answer_content,answer_time)
+		values (#answer_no#,#mem_id#,#question_no#,#answer_title#,#answer_content#,to_char(sysdate, 'yyyy-mm-dd hh:mi:ss'))
+	</insert>
+	
+
+	
+	
+	<select id="getAnswerNoCount" parameterClass="map" resultClass="int">
+		select count(*) cnt from answer
+	</select>
+	
+	
+	
+	<select id="getAllAnswer" resultClass="answervo" parameterClass="map">
+		select * from 
+		 
+		(
+		
+			select rownum as rnum, a.* from
+			
+		(
+		 
+			select answer_no,mem_id,question_no,answer_title,answer_content,answer_time
+			from answer order by 1
+		)a
+		
+			where rownum &lt;= #end#
+			
+		)
+		
+			where rnum &gt; #start#
+	</select>
+	
+	
+	
+	<select id="selectAnswer" resultClass="answervo">
+		select * from answer
+		where answer_no = #answer_no#
+	</select>
+	
+	
+	
+	<select id="deleteAnswer" parameterClass="String">
+		delete from answer
+		where answer_no = #answer_no#
+	</select>
+	
+	
+	
+	<select id="updateAnswer" parameterClass="answervo">
+		update answer
+		set	answer_no=#answer_no#,
+			mem_id=#mem_id#,
+			question_no=#question_no#,
+			answer_title=#answer_title#,
+			answer_content=#answer_content#,
+			answer_time=#answer_time#
+		where answer_no=#answer_no# 
+	</select>
+	
+	
+	
+	<select id="getMaxAnswerNo">
+		select max(answer_no) from answer
+	</select>
+	
+</sqlMap>

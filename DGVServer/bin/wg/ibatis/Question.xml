@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+	
+<sqlMap namespace="question">
+	<insert id="insertQuestion" parameterClass="questionvo">
+		insert into question (question_no,mem_id,question_title,question_content,question_time)
+		values(#question_no#,#mem_id#,#question_title#,#question_content#,to_char(sysdate, 'yyyy-mm-dd hh:mi:ss'))
+	</insert>
+	
+	<select id="getQuestinCount" resultClass="int">
+		select count(*) cnt from question
+	</select>
+	
+	<select id="getAllQuestion" resultClass="questionvo" parameterClass="map">
+	
+		select * from 
+		 
+		(
+		
+			select rownum as rnum, a.* from
+			
+		(
+		 
+			select question_no, mem_id, question_title, question_content, question_time from question order by 1
+		)a
+		
+			where rownum &lt;= #end#
+			
+		)
+		
+			where rnum &gt; #start#
+	</select>
+	
+	
+	
+	<select id="selctQuestion" resultClass="questionvo">
+		select * from question
+		where question_no = #question_no#
+	</select>
+	
+	
+	
+	<delete id="deleteQuestion" parameterClass="String">
+		delete from question
+		where question_no = #question_no#
+	</delete>
+	
+	
+	
+	<update id="updateQuestion" parameterClass="questionvo">
+		update question
+		set question_no = #question_no#,
+			mem_id = #mem_id#,
+			question_title = #question_title#,
+			question_content = #question_content#,
+			question_time = #question_time# 
+			
+		where question_no=#question_no#
+	</update>
+	
+	
+	
+	<select id="getMaxQuestionNo" resultClass="int">
+		select max(question_no) from question
+	</select>
+</sqlMap>

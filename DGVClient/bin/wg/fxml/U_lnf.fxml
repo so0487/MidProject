@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_lnfOneController">
+   <children>
+      <AnchorPane layoutX="29.0" prefHeight="100.0">
+         <children>
+            <ImageView fx:id="LnfImgView" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#Click" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/butter_ojingeo.jpg" />
+               </image></ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="6.0" layoutY="157.0" prefHeight="15.0" prefWidth="39.0" text="습득일" />
+      <Label layoutY="182.0" prefHeight="15.0" prefWidth="50.0" text="분실장소" />
+      <Label fx:id="lblDate" layoutX="71.0" layoutY="157.0" prefHeight="15.0" prefWidth="131.0" />
+      <Label fx:id="lblSpot" layoutX="71.0" layoutY="182.0" prefHeight="15.0" prefWidth="131.0" />
+   </children>
+</AnchorPane>

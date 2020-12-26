@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+	<sqlMap namespace="seat">
+	<select id="getSeatList" resultClass="seatvo" parameterClass="String">
+		select seat_id, theater_id, seat_name, seat_status, seat_price from seat
+		where theater_id = #theater_id# order by seat_id asc
+	</select>
+	
+	<insert id="insertSeat" parameterClass="seatvo">
+		insert into seat(seat_id, theater_id, seat_name, seat_status, seat_price)
+		values(#seat_id#,#theater_id#,#seat_name#,#seat_status#,#seat_price#)
+	</insert>
+	
+	<update id="updateSeat" parameterClass="seatvo">
+		update seat set seat_name = #seat_name#, seat_status=#seat_status#, seat_price=#seat_price#
+		where theater_id = #theater_id# and seat_id = #seat_id#
+	</update>
+	
+	<delete id="deleteSeat" parameterClass="java.util.Map">
+		delete from seat where seat_id = #seat_id# and theater_id=#theater_id#
+	</delete>
+	
+	<select id="getThList" resultClass="thvo">
+		select * from theater order by theater_name asc
+	</select>
+	
+	<select id="getAllSeat" resultClass="seatvo">
+		select * from seat order by theater_id, seat_id asc
+	</select>
+	
+	
+	
+	</sqlMap>

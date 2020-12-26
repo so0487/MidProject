@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.M_issueController">
+   <top>
+<!-- 여기까지-->
+      <AnchorPane prefHeight="112.0" prefWidth="960.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="312.0" layoutY="13.0" text="쿠폰">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_mem_id" disable="true" layoutX="377.0" layoutY="57.0" prefHeight="23.0" prefWidth="150.0" />
+            <Label layoutX="309.0" layoutY="51.0" text="회원ID">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Button fx:id="btnIssue" layoutX="606.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnIssueClick" prefHeight="40.0" prefWidth="40.0" text="발급" />
+            <Button fx:id="btnCxlIssue" layoutX="653.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnCxlIssueClick" prefHeight="40.0" prefWidth="73.0" text="발급철회" />
+            <ComboBox fx:id="cmb_coupon" layoutX="377.0" layoutY="19.0" prefWidth="150.0" />
+            <Button fx:id="btnSearch" layoutX="533.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnSearchClick" text="검색" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane prefWidth="500.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="tb_Issue" onMouseClicked="#tbIssueClick" prefHeight="600.0" prefWidth="1000.0" style="-fx-border-color: white;">
+              <columns>
+                <TableColumn fx:id="col_issue_no" prefWidth="100.0" style="-fx-alignment: center;" text="발급번호" />
+                <TableColumn fx:id="col_cou_name" prefWidth="145.0" style="-fx-alignment: center;" text="쿠폰명" />
+                  <TableColumn fx:id="col_mem_id" prefWidth="128.0" style="-fx-alignment: center-right;" text="회원ID" />
+                  <TableColumn fx:id="col_issue_time" prefWidth="186.0" style="-fx-alignment: center-right;" text="발급일시" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

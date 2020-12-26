@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.M_couponController">
+   <top>
+<!-- 여기까지-->
+      <AnchorPane prefHeight="112.0" prefWidth="960.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="310.0" layoutY="4.0" text="쿠폰ID">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_cou_id" disable="true" layoutX="380.0" layoutY="9.0" prefHeight="23.0" prefWidth="140.0" />
+            <TextField fx:id="tf_cou_name" disable="true" layoutX="380.0" layoutY="46.0" prefHeight="23.0" prefWidth="140.0" />
+            <Label layoutX="307.0" layoutY="42.0" text="쿠폰명">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label layoutX="307.0" layoutY="79.0" text="할인금액">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_cou_sale" disable="true" layoutX="380.0" layoutY="83.0" prefHeight="23.0" prefWidth="140.0" />
+            <Button fx:id="btnOk" layoutX="577.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnOkClick" prefHeight="40.0" prefWidth="40.0" text="확인" />
+            <Button fx:id="btnCxl" layoutX="577.0" layoutY="59.0" mnemonicParsing="false" onAction="#btnCxlClick" prefHeight="40.0" prefWidth="40.0" text="취소" />
+            <Label layoutX="301.0" layoutY="114.0" text="유효기간">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_cou_time" disable="true" layoutX="380.0" layoutY="120.0" prefHeight="23.0" prefWidth="140.0" />
+            <Label layoutX="524.0" layoutY="124.0" text="일" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane prefWidth="500.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="tb_coupon" onMouseClicked="#tbCouponClick" prefHeight="800.0" prefWidth="1000.0" style="-fx-border-color: white;">
+              <columns>
+                <TableColumn fx:id="col_cou_id" prefWidth="100.0" style="-fx-alignment: center;" text="쿠폰ID" />
+                <TableColumn fx:id="col_cou_name" prefWidth="145.0" style="-fx-alignment: center;" text="쿠폰명" />
+                  <TableColumn fx:id="col_cou_sale" prefWidth="128.0" style="-fx-alignment: center-right;" text="할인금액" />
+                  <TableColumn fx:id="col_cou_time" prefWidth="73.0" style="-fx-alignment: center-right;" text="유효기간" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox prefHeight="31.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddClick" prefHeight="20.0" prefWidth="60.0" text="등록">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnMod" mnemonicParsing="false" onAction="#btnModClick" prefHeight="20.0" prefWidth="60.0" text="수정">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnDel" mnemonicParsing="false" onAction="#btnDelClick" prefHeight="20.0" prefWidth="60.0" text="삭제">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

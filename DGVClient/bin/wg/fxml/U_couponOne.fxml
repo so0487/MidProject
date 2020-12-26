@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="165.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_couponOneController">
+   <children>
+      <AnchorPane layoutY="6.0" prefHeight="162.0" prefWidth="805.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="50.0" prefHeight="129.0" prefWidth="298.0" style="-fx-background-color: #ed2611; -fx-background-radius: 2; -fx-border-radius: 1; -fx-border-width: 3;" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="lblCouponName" layoutX="131.0" layoutY="25.0" prefHeight="40.0" prefWidth="152.0" textFill="#f8f001">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCouponPrice" layoutX="225.0" layoutY="60.0" prefHeight="22.0" prefWidth="40.0" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCouponDate" layoutX="226.0" layoutY="99.0" prefHeight="22.0" prefWidth="22.0" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Label layoutX="180.0" layoutY="102.0" text="유효기간 " textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIssueTime" layoutX="222.0" layoutY="80.0" prefHeight="22.0" prefWidth="119.0" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Label layoutX="180.0" layoutY="84.0" text="발급일시" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCouId" layoutX="62.0" layoutY="4.0" prefHeight="22.0" prefWidth="34.0" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Label layoutX="248.0" layoutY="102.0" text="일" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Label layoutX="180.0" layoutY="60.0" prefHeight="22.0" prefWidth="40.0" text="할인금액" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="58.0" fitWidth="83.0" layoutX="53.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/movie2.PNG" />
+               </image>
+            </ImageView>
+            <Label layoutX="311.0" layoutY="1.0" prefHeight="22.0" prefWidth="34.0" text="DGV" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="64.0" text="원" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="smovie">
+	<select id="viewList" resultClass="smvo">
+		select smovie_no, theater_name, theater_id, movie_name, mvoie_id, movie_release, movie_end from movie a, smovie b, theater c 
+		where a.movie_id = b.movie_id
+		and c.theater_id = b.theater_id 
+		order by theater_name asc
+	</select>
+	
+	<select id="viewList2" resultClass="smvo" parameterClass="String">
+	  select distinct smovie_no, theater_name, c.theater_id, movie_name, a.movie_id, movie_release, movie_end 
+      from movie a, smovie b, theater c 
+      where a.movie_id = b.movie_id
+      and c.theater_id = b.theater_id 
+      and c.theater_id = #theater_id#
+      order by smovie_no asc
+	</select>	
+	
+	<insert id="insertSmovie" parameterClass="smvo2">
+		insert into smovie(smovie_no, theater_id, movie_id)
+		values (smvoie_seq.nextVal, #theater_id#, #movie_id#)
+	</insert>
+	
+	
+	<update id="updateSmovie" parameterClass="smvo2">
+		update smovie set movie_id=#movie_id#
+		where smovie_no = #smovie_no# 
+	</update>
+	
+	<delete id="deletSmovie" parameterClass="int">
+		delete from smovie where smovie_no = $smovie_no$
+	</delete>
+	
+	<select id="sMovieNameList" resultClass="smsivo">
+		select distinct a.movie_name, a.movie_adult, a.movie_poster
+		from movie a, smovie b
+		where  a.movie_id = b.movie_id order by 1
+	</select>
+	
+	<select id="viewList3" resultClass="smvo3" parameterClass="map">
+		select a.movie_name, b.gen_name, a.movie_id, b.gen_id from movie a, genre b
+		where b.gen_id = a.gen_id 
+		and sysdate &gt; a.movie_release 
+		and sysdate &lt; a.movie_end
+		<dynamic>
+			<isNotEmpty property="searchField" prepend="and">
+				$searchField$ like '%'||#searchWord#||'%'
+			</isNotEmpty>
+		</dynamic>
+		order by b.gen_name
+	</select>
+	
+	
+	
+	
+</sqlMap>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="mainColor" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.G_mediaViewController">
+   <children>
+      <BorderPane fx:id="outer">
+         <left>
+            <AnchorPane fx:id="mainColor2" prefHeight="900.0" prefWidth="922.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="850.0" prefWidth="980.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="pAladdin" fitHeight="330.0" fitWidth="220.0" onMouseClicked="#pAladdinClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/aladdin.jpg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="11.0" right="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="pVivarium" fitHeight="321.0" fitWidth="232.0" onMouseClicked="#pVivariumClick" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="11.0" right="11.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../img/vivarium.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="pBombshell" fitHeight="330.0" fitWidth="220.0" onMouseClicked="#pBombshellClick" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="11.0" right="11.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@../img/bombshell.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="pGangChulBi" fitHeight="330.0" fitWidth="220.0" onMouseClicked="#pGangChulBiClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/gangchulbi2.jpg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="11.0" right="11.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="53.0" prefWidth="1000.0">
+                           <children>
+                              <Button fx:id="bookAladin" mnemonicParsing="false" onAction="#bookAladinClick" prefWidth="210.0" style="-fx-background-color: red;" text="예매">
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="18.0" right="18.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="bookVivarium" mnemonicParsing="false" onAction="#bookVivariumClick" prefWidth="210.0" style="-fx-background-color: red;" text="예매">
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="18.0" right="18.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="bookBombshell" mnemonicParsing="false" onAction="#bookBombshellClick" prefWidth="210.0" style="-fx-background-color: red;" text="예매">
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="18.0" right="18.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="bookGangChulBi" mnemonicParsing="false" onAction="#bookGangChulBiClick" prefWidth="210.0" style="-fx-background-color: red;" text="예매">
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="18.0" right="18.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <AnchorPane prefHeight="454.0" prefWidth="1000.0">
+                           <children>
+                              <ImageView fx:id="pBando" fitHeight="280.0" fitWidth="203.0" layoutX="14.0" layoutY="70.0" onMouseClicked="#pBandoClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/bando.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="dirLabel" layoutX="18.0" layoutY="355.0" text="감독 :" textFill="WHITE" />
+                              <Label fx:id="dirLabel2" layoutX="59.0" layoutY="355.0" text="연상호" textFill="WHITE" />
+                              <Label fx:id="actLabel" layoutX="19.0" layoutY="378.0" text="배우 :" textFill="WHITE" />
+                              <Label fx:id="actLabel2" layoutX="59.0" layoutY="378.0" text="강동원, 이정현, 이레" textFill="WHITE" />
+                              <Label fx:id="genLabel" layoutX="19.0" layoutY="402.0" text="장르 :  " textFill="WHITE" />
+                              <Label fx:id="genLabel2" layoutX="59.0" layoutY="402.0" text="액션, 드라마" textFill="WHITE" />
+                              <Button layoutX="31.0" layoutY="38.0" mnemonicParsing="false" style="-fx-background-color: none;" text="더보기" textFill="#c3c3c3" />
+                              <Button fx:id="btnMore" layoutX="83.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnMoreClick" prefWidth="0.0" style="-fx-background-color: #7c7979;" text="+" textFill="WHITE" />
+                              <MediaView fx:id="media" fitHeight="450.0" fitWidth="700.0" layoutX="230.0" layoutY="10.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+   <padding>
+      <Insets left="100.0" right="100.0" />
+   </padding>
+</StackPane>

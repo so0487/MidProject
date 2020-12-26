@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DGVClient/src/wg/fxml/NoticeDetail.fxml&apos; to &apos;S_NoticeDetail.fxml&apos;" description="Rename resource &apos;NoticeDetail.fxml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/wg/fxml/NoticeDetail.fxml" name="S_NoticeDetail.fxml" stamp="1597336196153" updateReferences="true"/>
+</session>

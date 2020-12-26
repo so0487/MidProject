@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="455.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_reviewController">
+   <children>
+      <Label fx:id="lbl_mem_name" layoutX="47.0" layoutY="17.0" text="김*미" />
+      <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="19.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/heart.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbl_rev_cont" layoutX="19.0" layoutY="56.0" prefHeight="15.0" prefWidth="417.0" text="너무 재미있었어요!" />
+      <Label fx:id="lbl_rev_date" layoutX="200.0" layoutY="7.0" text="2020-08-20" />
+      <HBox fx:id="starHbox" layoutX="195.0" layoutY="30.0" prefHeight="33.0" prefWidth="133.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <ImageView fx:id="w0" fitHeight="25.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w1" fitHeight="25.0" layoutX="13.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w2" fitHeight="25.0" fitWidth="43.0" layoutX="26.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w3" fitHeight="25.0" fitWidth="50.0" layoutX="39.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w4" fitHeight="25.0" fitWidth="43.0" layoutX="52.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w5" fitHeight="25.0" fitWidth="50.0" layoutX="65.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w6" fitHeight="25.0" fitWidth="43.0" layoutX="78.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w7" fitHeight="25.0" fitWidth="50.0" layoutX="91.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w8" fitHeight="25.0" fitWidth="43.0" layoutX="104.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="w9" fitHeight="25.0" fitWidth="50.0" layoutX="117.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/whiteStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y0" fitHeight="25.0" fitWidth="43.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y2" fitHeight="25.0" fitWidth="43.0" layoutX="26.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y4" fitHeight="25.0" fitWidth="43.0" layoutX="50.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y6" fitHeight="25.0" fitWidth="43.0" layoutX="75.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y8" fitHeight="25.0" fitWidth="43.0" layoutX="100.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarLeft.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y1" fitHeight="25.0" fitWidth="50.0" layoutX="13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y3" fitHeight="25.0" fitWidth="50.0" layoutX="38.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y5" fitHeight="25.0" fitWidth="50.0" layoutX="62.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y7" fitHeight="25.0" fitWidth="50.0" layoutX="87.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarRight.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="y9" fitHeight="25.0" fitWidth="50.0" layoutX="112.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../img/yellowStarRight.PNG" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

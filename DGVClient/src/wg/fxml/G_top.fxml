@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="outerBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="1200.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.G_topController">
+   <children>
+      <HBox alignment="TOP_CENTER" layoutX="9.0" layoutY="49.0" prefHeight="136.0" prefWidth="1200.0">
+         <children>
+            <Button fx:id="movieTop" mnemonicParsing="false" onAction="#movieTopClick" prefHeight="71.0" prefWidth="87.0" style="-fx-background-color: black;" text="영화" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="bookTop" mnemonicParsing="false" onAction="#bookTopClick" prefHeight="71.0" prefWidth="140.0" style="-fx-background-color: black;" text="예매" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="auction" mnemonicParsing="false" onAction="#goAuction" prefHeight="71.0" prefWidth="100.0" style="-fx-background-color: black;" text="티켓경매" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="blackLogo" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#logoClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/blackDGV.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Button fx:id="snackSet" mnemonicParsing="false" onAction="#goSnackSet" prefHeight="71.0" prefWidth="140.0" style="-fx-background-color: black;" text="스낵바세트" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEvent" mnemonicParsing="false" onAction="#dataEvent" prefHeight="71.0" prefWidth="140.0" style="-fx-background-color: black;" text="이벤트" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnNotice" mnemonicParsing="false" onAction="#goNotice" prefHeight="71.0" prefWidth="87.0" style="-fx-background-color: black;" text="공지" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" top="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <HBox layoutX="879.0" layoutY="7.0" prefHeight="33.0" prefWidth="213.0">
+         <children>
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#goRegister" style="-fx-background-color: black;" text="회원가입" textFill="WHITE" />
+            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#goLog" prefHeight="23.0" prefWidth="71.0" style="-fx-background-color: black;" text="로그인" textFill="WHITE" />
+            <Button fx:id="btnMypage" mnemonicParsing="false" onAction="#goMyPage" style="-fx-background-color: black;" text="마이페이지" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

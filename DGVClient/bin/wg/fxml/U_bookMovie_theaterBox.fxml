@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="129.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_bookMovie_theaterBoxController">
+   <children>
+      <Label fx:id="lblTheaterName" text="theaterName">
+         <VBox.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Label>
+   </children>
+   <padding>
+      <Insets left="5.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="815.0" prefWidth="1200.0" style="-fx-background-color: none;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_eventBigController">
+   <children>
+      <AnchorPane prefHeight="815.0" prefWidth="1200.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="eventImg" fitHeight="733.0" fitWidth="600.0" layoutX="300.0" layoutY="80.0" onMouseClicked="#click" />
+            <Label layoutX="949.0" layoutY="54.0" prefHeight="24.0" prefWidth="42.0" text="등록일:" />
+            <Label fx:id="txtDate" layoutX="998.0" layoutY="58.0" prefHeight="15.0" prefWidth="140.0" style="-fx-background-color: none;" />
+            <Separator layoutY="77.0" prefHeight="1.0" prefWidth="1200.0" />
+            <Label fx:id="txtName" layoutX="521.0" layoutY="11.0" prefHeight="43.0" prefWidth="461.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="427.0" layoutY="25.0" text="[이벤트]">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="817.0" layoutY="55.0" prefHeight="24.0" prefWidth="42.0" text="당첨자:" />
+            <Label fx:id="txtMemId" layoutX="859.0" layoutY="60.0" prefHeight="15.0" prefWidth="88.0" style="-fx-background-color: none;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

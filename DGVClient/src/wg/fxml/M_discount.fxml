@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.M_discountController">
+   <center>
+      <ScrollPane prefWidth="960.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="tb_Discount" onMouseClicked="#tbDiscountClick" prefHeight="760.0" prefWidth="960.0" style="-fx-border-color: white;">
+               <columns>
+                  <TableColumn fx:id="col_dis_id" prefWidth="104.0" text="할인id" />
+                  <TableColumn fx:id="col_dis_name" prefWidth="123.0" text="할인명" />
+                  <TableColumn fx:id="col_dis_price" prefWidth="155.6666259765625" text="할인가격" />
+                  <TableColumn fx:id="col_dis_if" prefWidth="290.3333740234375" text="할인상세" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox prefHeight="31.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddClick" prefHeight="20.0" prefWidth="60.0" text="등록">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnMod" mnemonicParsing="false" onAction="#btnModClick" prefHeight="20.0" prefWidth="60.0" text="수정">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnDel" mnemonicParsing="false" onAction="#btnDelClick" prefHeight="20.0" prefWidth="60.0" text="삭제">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="112.0" prefWidth="960.0" style="-fx-border-color: #c7c9c8;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="251.0" layoutY="23.0" text="할인id">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_dis_id" disable="true" layoutX="321.0" layoutY="28.0" prefHeight="23.0" prefWidth="299.0" />
+            <Button fx:id="btnOk" disable="true" layoutX="638.0" layoutY="29.0" mnemonicParsing="false" onAction="#btnOkClick" prefHeight="40.0" prefWidth="40.0" text="확인" />
+            <Button fx:id="btnCxl" disable="true" layoutX="689.0" layoutY="29.0" mnemonicParsing="false" onAction="#btnCxlClick" prefHeight="40.0" prefWidth="40.0" text="취소" />
+            <Label layoutX="252.0" layoutY="55.0" text="할인명">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_dis_name" disable="true" layoutX="322.0" layoutY="60.0" prefHeight="23.0" prefWidth="299.0" />
+            <Label layoutX="251.0" layoutY="90.0" text="할인가격">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_dis_price" disable="true" layoutX="321.0" layoutY="95.0" prefHeight="23.0" prefWidth="299.0" />
+            <Label layoutX="252.0" layoutY="126.0" text="할인상세">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="tf_dis_if" disable="true" layoutX="322.0" layoutY="131.0" prefHeight="23.0" prefWidth="299.0" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </AnchorPane>
+   </top>
+</BorderPane>

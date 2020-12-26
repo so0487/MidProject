@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="815.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_setMainController">
+   <children>
+      <ScrollPane prefHeight="815.0" prefWidth="1200.0">
+         <content>
+            <BorderPane fx:id="outerBox" prefWidth="1200.0">
+               <center>
+                  <AnchorPane prefHeight="580.0" prefWidth="1200.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label layoutX="221.0" layoutY="25.0" text="스낵바 세트 구매">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="vbox" layoutX="203.0" layoutY="71.0" prefHeight="1000.0" prefWidth="767.0" style="-fx-border-color: #c5bdbd;">
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding></VBox>
+                     </children>
+                  </AnchorPane>
+               </center>
+               <top>
+                  <ImageView fitHeight="118.0" fitWidth="1190.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_LEFT">
+                     <image>
+                        <Image url="@../img/block.PNG" />
+                     </image>
+                  </ImageView>
+               </top>
+            </BorderPane>
+         </content>
+      </ScrollPane>
+   </children>
+</StackPane>

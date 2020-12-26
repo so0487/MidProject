@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="551.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_payConfirmController">
+   <children>
+      <Label prefHeight="40.0" prefWidth="813.0" style="-fx-background-color: #3f3c3c;" text="예매내역 확인" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="btnGo" layoutX="295.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnGoClick" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #e42020;" text="결제진행" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCxl" layoutX="407.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnCxlClick" prefHeight="40.0" prefWidth="59.0" style="-fx-background-color: none; -fx-border-color: grey; -fx-border-radius: 5; -fx-border-width: 2;" text="취소">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <BorderPane layoutX="16.0" layoutY="73.0" prefHeight="390.0" prefWidth="782.0">
+         <center>
+            <AnchorPane prefHeight="404.0" prefWidth="786.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Separator prefWidth="782.0" />
+                  <ImageView fx:id="ImgPoster" fitHeight="150.0" fitWidth="126.0" layoutX="18.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="157.0" layoutY="55.0" text="영화명" />
+                  <Label layoutX="157.0" layoutY="84.0" text="상영관" />
+                  <Label layoutX="169.0" layoutY="113.0" text="일시" />
+                  <Label layoutX="168.0" layoutY="139.0" text="인원" />
+                  <Label layoutX="168.0" layoutY="163.0" text="좌석" />
+                  <Label fx:id="lbl_movie_name" layoutX="203.0" layoutY="55.0" text="Label" />
+                  <Label fx:id="lbl_theater_name" layoutX="203.0" layoutY="84.0" text="Label" />
+                  <Label fx:id="lbl_date_time" layoutX="203.0" layoutY="113.0" text="Label" />
+                  <Label fx:id="lbl_qty" layoutX="203.0" layoutY="139.0" text="Label" />
+                  <Label fx:id="lbl_seat_id" layoutX="203.0" layoutY="163.0" text="Label" />
+                  <Separator layoutY="204.0" prefWidth="782.0" />
+                  <Separator layoutX="388.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="206.0" />
+                  <Separator layoutX="1.0" layoutY="36.0" prefWidth="782.0" />
+                  <HBox alignment="CENTER_LEFT" layoutX="1.0" layoutY="-2.0" prefHeight="40.0" prefWidth="388.0">
+                     <children>
+                        <Label text="● 예매정보">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="BOTTOM_LEFT" text="예매내역을 다시 한번 확인해 주세요." />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="391.0" layoutY="-2.0" prefHeight="40.0" prefWidth="395.0">
+                     <children>
+                        <Label text="●결제정보">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="결제하기 버튼을 클릭하시면 결제가 완료됩니다." />
+                     </children>
+                  </HBox>
+                  <Label layoutX="405.0" layoutY="55.0" text="결제금액" />
+                  <Label layoutX="405.0" layoutY="82.0" text="결제수단" />
+                  <Label fx:id="lbl_pay_price" layoutX="466.0" layoutY="55.0" text="Label" />
+                  <Label fx:id="lbl_pay_met" layoutX="466.0" layoutY="82.0" text="Label" />
+                  <Label layoutX="14.0" layoutY="217.0" text="·인터넷 예매는 온라인상으로 영화상영 시간 20분 전 까지 취소 가능하며 20분 이후에는 현장에서 취소를 하셔야 합니다." />
+                  <Label layoutX="14.0" layoutY="241.0" text="·현장 취소를 하는 경우 상영시간 이전까지만 가능하며 영화 상역 시작 시간 이후 취소나 환불은 되지 않습니다." />
+                  <Label layoutX="14.0" layoutY="265.0" text="·입장 지연에 따른 관람 불편을 최소화하기 위해 본 영화는 10분 후 상영이 시작됩니다." />
+                  <Separator layoutX="3.0" layoutY="294.0" prefWidth="782.0" />
+                  <CheckBox fx:id="allCheck" layoutX="14.0" layoutY="303.0" mnemonicParsing="false" onAction="#allCheckClick" text="결제대행서비스 약관에 모두 동의" />
+                  <CheckBox fx:id="check1" layoutX="40.0" layoutY="328.0" mnemonicParsing="false" onAction="#check1Click" text="전자금융거래 이용약관" />
+                  <CheckBox fx:id="check3" layoutX="40.0" layoutY="354.0" mnemonicParsing="false" onAction="#check3Click" text="개인정보 수집 이용약관" />
+                  <CheckBox fx:id="check2" layoutX="213.0" layoutY="328.0" mnemonicParsing="false" onAction="#check2Click" text="개인정보 제공 및 위탁 안내 약관" />
+                  <CheckBox fx:id="check4" layoutX="213.0" layoutY="354.0" mnemonicParsing="false" onAction="#check4Click" text="상기 결제 내역을 모두 확인했습니다." />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

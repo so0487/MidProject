@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="52.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_noticeOneController">
+   <children>
+      <AnchorPane layoutX="9.0" maxWidth="1096.0" prefHeight="52.0" prefWidth="800.0" style="-fx-background-color: white;">
+         <children>
+            <Separator layoutX="-1.0" layoutY="13.0" prefWidth="800.0" />
+            <Label fx:id="label_no" layoutX="14.0" layoutY="29.0" onMouseClicked="#click" text="번호">
+               <font>
+               
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_writer" layoutX="88.0" layoutY="29.0" text="작성자" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_title" layoutX="181.0" layoutY="29.0" prefHeight="19.0" prefWidth="400.0" text="제목">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_date" layoutX="601.0" layoutY="29.0" text="일시">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

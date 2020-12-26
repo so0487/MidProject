@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxWidth="1200.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.S_QnAOneController">
+   <children>
+      <AnchorPane layoutX="6.0" maxWidth="1023.0" prefHeight="71.0" prefWidth="500.0" style="-fx-background-color: white;">
+         <children>
+            <Separator layoutX="25.0" layoutY="14.0" prefWidth="1200.0" />
+            <Label fx:id="label_no" layoutX="25.0" layoutY="33.0" onMouseClicked="#click">
+               <font>
+               
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_title" layoutX="134.0" layoutY="33.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_writer" layoutX="419.0" layoutY="33.0" prefHeight="19.0" prefWidth="400.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_date" layoutX="890.0" layoutY="33.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

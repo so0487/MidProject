@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_bookMovie_timeBoxController">
+   <children>
+      <Button fx:id="btnTime" mnemonicParsing="false" style="-fx-border-color: #c2baba; -fx-background-color: none;" text="17:20">
+         <HBox.margin>
+            <Insets left="5.0" top="5.0" />
+         </HBox.margin>
+      </Button>
+      <Label fx:id="lblOpenSeatNum" text="100/">
+         <HBox.margin>
+            <Insets left="5.0" top="10.0" />
+         </HBox.margin>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSeatNum" text="100석">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <HBox.margin>
+            <Insets bottom="5.0" top="10.0" />
+         </HBox.margin>
+      </Label>
+      <ImageView fx:id="icon" fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="5.0" top="8.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../img/star_icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</HBox>

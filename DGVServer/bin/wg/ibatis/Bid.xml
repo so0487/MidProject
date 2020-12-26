@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bid">
+	<select id = "getAllList"  resultClass ="bidVO">
+		select * from bid
+	</select>
+
+	<insert id="insertBid" parameterClass="bidvo">
+		insert into bid values(#bid_id#,#mem_id#, #auc_no#,#bid_time#,#bid_price#)
+	</insert>
+  
+	<select id = "bidPrice" parameterClass="int" resultClass ="int">
+		select b.seat_price
+		from seatsch a,seat b
+		where a.seat_id = b.seat_id
+		and a.THEATER_ID = b.THEATER_ID
+		and a.sseat_no = #sseat_no#
+	</select>
+	
+	
+<select id = "resultBid" parameterClass="int" resultClass ="brvo">
+select  a.seat_id,
+        d.movie_name,
+        d.movie_poster,
+        e.theater_name,
+        b.show_time
+from   seatsch a, mschedule b, smovie c, movie d, theater e
+where a.show_no = b.show_no
+and b.smovie_no = c.smovie_no
+and c.movie_id = d.movie_id
+and e.theater_id = a.theater_id
+and a.sseat_no = #sseat_no#
+</select>
+
+<select id="getMax" resultClass="String">
+		select max(bid_id) from Bid
+</select>
+	
+	
+	
+	
+	
+	
+</sqlMap>	

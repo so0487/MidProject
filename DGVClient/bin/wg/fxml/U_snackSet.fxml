@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="103.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_setOneController">
+   <children>
+      <AnchorPane layoutY="6.0" prefHeight="153.0" prefWidth="337.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="setImg" fitHeight="138.0" fitWidth="122.0" layoutX="5.0" layoutY="6.0" onMouseClicked="#click" />
+            <Label layoutX="135.0" layoutY="22.0" text="세트 ID">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="152.0" layoutY="55.0" text="이름">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="152.0" layoutY="92.0" text="가격">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="setId" layoutX="201.0" layoutY="22.0" prefHeight="21.0" prefWidth="122.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="setName" layoutX="201.0" layoutY="55.0" prefHeight="21.0" prefWidth="122.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="price" layoutX="201.0" layoutY="92.0" prefHeight="21.0" prefWidth="89.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Separator layoutY="149.0" prefHeight="4.0" prefWidth="337.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

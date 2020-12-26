@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.M_eventController">
+   <bottom>
+      <HBox prefHeight="26.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddClick" prefHeight="20.0" prefWidth="60.0" text="등록">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#btnEditClick" prefHeight="20.0" prefWidth="60.0" text="수정">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin></Button>
+            <Button fx:id="btnDel" mnemonicParsing="false" onAction="#btnDelClick" prefHeight="20.0" prefWidth="60.0" text="삭제">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin></Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="223.0" prefWidth="955.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbl_id" layoutX="270.0" layoutY="20.0" text="이벤트ID" />
+            <TextField fx:id="txtEventId" editable="false" layoutX="331.0" layoutY="16.0" prefHeight="23.0" prefWidth="299.0" />
+            <TextField fx:id="txtWriterId" editable="false" layoutX="331.0" layoutY="53.0" prefHeight="23.0" prefWidth="299.0" promptText="M001" />
+            <Label fx:id="lbl_name" layoutX="271.0" layoutY="57.0" text="작성자ID" />
+            <Label fx:id="lbl_price" layoutX="272.0" layoutY="90.0" text="당첨자ID" />
+            <TextField fx:id="txtMemId" editable="false" layoutX="331.0" layoutY="86.0" prefHeight="23.0" prefWidth="300.0" />
+            <Button fx:id="btnOK" layoutX="691.0" layoutY="36.0" mnemonicParsing="false" onAction="#dataOKClick" prefHeight="40.0" prefWidth="40.0" text="확인" />
+            <Button fx:id="btnCancel" layoutX="691.0" layoutY="86.0" mnemonicParsing="false" onAction="#dataCancelClick" prefHeight="40.0" prefWidth="40.0" text="취소" />
+            <ImageView fx:id="imgView" fitHeight="148.0" fitWidth="200.0" layoutX="42.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/snacksetImgmain.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtEventName" editable="false" layoutX="331.0" layoutY="119.0" prefHeight="23.0" prefWidth="300.0" />
+            <Button fx:id="btnImg" layoutX="674.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnImgClick" prefHeight="25.0" prefWidth="75.0" text="사진등록" />
+            <Label fx:id="lbl_img" layoutX="265.0" layoutY="123.0" text="이벤트제목" />
+            <TextField fx:id="txtEventDate" editable="false" layoutX="330.0" layoutY="151.0" prefHeight="23.0" prefWidth="300.0" />
+            <Label fx:id="lbl_img1" layoutX="271.0" layoutY="155.0" text="작성일시" />
+            <TextField fx:id="txtImage" editable="false" layoutX="330.0" layoutY="183.0" prefHeight="23.0" prefWidth="300.0" promptText="사진등록 버튼을 눌러주세요." />
+            <Label layoutX="282.0" layoutY="187.0" text="사진" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="tableView" onMouseClicked="#tableViewClick" prefHeight="391.0" prefWidth="946.0">
+              <columns>
+                  <TableColumn fx:id="eventIdCol" prefWidth="130.0" text="이벤트ID" />
+                  <TableColumn fx:id="writerIdCol" prefWidth="149.0" text="작성자ID" />
+                  <TableColumn fx:id="memIdCol" prefWidth="161.0" text="당첨자ID" />
+                  <TableColumn fx:id="nameCol" prefWidth="237.0" text="이벤트제목" />
+                  <TableColumn fx:id="dateCol" prefWidth="268.0" text="작성일시" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

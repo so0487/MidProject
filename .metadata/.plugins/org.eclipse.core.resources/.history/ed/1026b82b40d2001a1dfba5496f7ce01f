@@ -1,0 +1,261 @@
+package wg.main;
+
+import java.net.URL;
+import java.rmi.RemoteException;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
+import util.AlertUtil;
+import wg.snackSet.service.ISnackSetService;
+import wg.vo.SnackSetVO;
+
+public class M_snackSetController {
+
+	@FXML
+	private ResourceBundle resources;
+
+	@FXML
+	private URL location;
+
+	@FXML
+	private StackPane scroll;
+
+	@FXML
+	private Label lbl_id;
+
+	@FXML
+	private TextField txtfield_id;
+
+	@FXML
+	private TextField txtfield_name;
+
+	@FXML
+	private Label lbl_name;
+
+	@FXML
+	private Label lbl_price;
+
+	@FXML
+	private TextField txtfield_price;
+
+	@FXML
+	private Button btnOK;
+
+	@FXML
+	private Button btnCancel;
+
+	@FXML
+	private Button btnImg;
+
+	@FXML
+	private TableView<SnackSetVO> tableView;
+
+	@FXML
+	private TableColumn<?, ?> idCol;
+
+	@FXML
+	private TableColumn<?, ?> nameCol;
+
+	@FXML
+	private TableColumn<?, ?> priceCol;
+
+	@FXML
+	private TableColumn<?, ?> imgCol;
+
+	@FXML
+	private Button btnAdd;
+
+	@FXML
+	private Button btnEdit;
+
+	@FXML
+	private Button btnDel;
+
+
+
+	private void getAllSnackSetList2() throws RemoteException{
+		List<SnackSetVO> list = service.getAllSnackSetList();
+		snacksetList = FXCollections.observableArrayList(list);
+		tableView.setItems(snacksetList);
+	}
+
+
+
+
+	@FXML
+	void btnAddClick(ActionEvent event) {
+		txtfield_id.setEditable(true);
+		txtfield_name.setEditable(true);
+		txtfield_price.setEditable(true);
+
+
+		btnOK.setDisable(false);
+		btnCancel.setDisable(false);
+
+		btnAdd.setDisable(true);
+		btnEdit.setDisable(true);
+		btnDel.setDisable(true);
+		tableView.setDisable(true);
+
+
+		txtfield_id.clear();
+		txtfield_name.clear();
+		txtfield_price.clear();
+
+
+		txtfield_id.requestFocus();
+		strWords="add";
+
+	}
+
+	@FXML
+	void btnDelClick(ActionEvent event) throws RemoteException{
+		if(tableView.getSelectionModel().isEmpty()) {
+			AlertUtil.warnMsg("스낵바 세트 선택", "삭제할 스낵바 세트를 선택하세요");
+			return;
+		}
+
+		String id = txtfield_id.getText();
+		String name = txtfield_name.getText();
+
+
+		int cnt = service.deleteSnackSet(id);
+
+		if(cnt>0) {
+			AlertUtil.infoMsg("작업결과", name+" 삭제 성공");
+
+
+			getAllSnackSetList2();
+
+			txtfield_id.clear();
+			txtfield_name.clear();
+			txtfield_price.clear();
+
+
+		}else {
+			AlertUtil.warnMsg("작업결과", name+"삭제 실패");
+		}
+	}
+
+
+
+
+
+
+	@FXML
+	void btnEditClick(ActionEvent event) {
+		if(tableView.getSelectionModel().isEmpty()) {
+			AlertUtil.warnMsg("스낵세트 선택", "수정할 스낵세트 메뉴를 선택하세요");
+			return;
+		}
+
+
+		txtfield_id.setEditable(true);
+		txtfield_name.setEditable(true);
+		txtfield_price.setEditable(true);
+
+
+		btnOK.setDisable(false);
+		btnCancel.setDisable(false);
+
+
+		btnAdd.setDisable(true);
+		btnEdit.setDisable(true);
+		btnDel.setDisable(true);
+
+
+		txtfield_name.requestFocus();
+		strWords="edit";
+	}
+
+	@FXML
+	void btnImgClick(ActionEvent event) {
+
+	}
+
+	@FXML
+	void dataCancelClick(ActionEvent event) {
+		txtfield_id.setEditable(false);
+		txtfield_name.setEditable(false);
+		txtfield_price.setEditable(false);
+
+
+
+		btnOK.setDisable(false);
+		btnCancel.setDisable(false);
+
+
+		btnAdd.setDisable(false);
+		btnEdit.setDisable(false);
+		btnDel.setDisable(false);
+		tableView.setDisable(false);
+
+
+
+
+
+		if(!tableView.getSelectionModel().isEmpty()) {
+			SnackSetVO snacksetVo = tableView.getSelectionModel().getSelectedItem();
+
+
+			txtfield_id.setText(snacksetVo.getSet_id());
+			txtfield_name.setText(snacksetVo.getSet_name());
+			txtfield_price.setText(Integer.toString(snacksetVo.getSet_price()));
+
+		}
+
+		strWords="";
+	}
+
+	@FXML
+	void dataOKClick(ActionEvent event) {
+		String id = txtfield_id.getText();
+		String name = txtfield_name.getText();
+		String price = txtfield_price.getText();
+		
+		
+		if(id.isEmpty()) {
+			AlertUtil.warnMsg("입력오류", "스낵바 Id를 입려하세요");
+		}
+	}
+
+
+
+	private String strWords="";
+	private ISnackSetService service;
+	private ObservableList<SnackSetVO> snacksetList;
+
+
+	@FXML
+	void initialize() {
+		assert scroll != null : "fx:id=\"scroll\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert lbl_id != null : "fx:id=\"lbl_id\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert txtfield_id != null : "fx:id=\"txtfield_id\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert txtfield_name != null : "fx:id=\"txtfield_name\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert lbl_name != null : "fx:id=\"lbl_name\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert lbl_price != null : "fx:id=\"lbl_price\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert txtfield_price != null : "fx:id=\"txtfield_price\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert btnOK != null : "fx:id=\"btnOK\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert btnCancel != null : "fx:id=\"btnCancel\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert btnImg != null : "fx:id=\"btnImg\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert tableView != null : "fx:id=\"tableView\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert idCol != null : "fx:id=\"idCol\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert nameCol != null : "fx:id=\"nameCol\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert priceCol != null : "fx:id=\"priceCol\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert imgCol != null : "fx:id=\"imgCol\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert btnAdd != null : "fx:id=\"btnAdd\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert btnEdit != null : "fx:id=\"btnEdit\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+		assert btnDel != null : "fx:id=\"btnDel\" was not injected: check your FXML file 'M_snackSet.fxml'.";
+
+	}
+}

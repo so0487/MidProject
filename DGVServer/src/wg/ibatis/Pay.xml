@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="pay">
+
+	<insert id="insertPay" parameterClass="pvo">
+		insert into pay (pay_no, book_id, pay_price, pay_time, pay_refund, paymet_no)
+		values(pay_seq.nextVal, #book_id#, #pay_price#, to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'), 'N', #paymet_no#)
+	</insert>
+	<insert id="insertPayBid" parameterClass="pvo">
+		insert into pay (pay_no, bid_id, pay_price, pay_time, pay_refund, paymet_no)
+		values(pay_seq.nextVal, #bid_id#, #pay_price#, to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'), 'N', #paymet_no#)
+	</insert>
+	
+	<delete id="deletePay" parameterClass="int">
+		delete from pay where pay_no = #pay_no#
+	</delete>
+	
+	<select id="getPay_no" resultClass="int" parameterClass="String">
+		select pay_no from pay where book_id = #book_id#
+	</select>
+	
+	<select id="getPay" resultClass="pvo" parameterClass="String">
+		select * from pay where book_id = #book_id#
+	</select>
+	
+	
+	<update id="updatePayRefund" parameterClass="String">
+		 update pay set pay_refund = 'Y', pay_price = 0 where book_id = #book_id#
+	</update>
+	
+	<update id="updateSnackPayRefund" parameterClass="String">
+		 update pay set pay_refund = 'Y', pay_price = 0 where buy_id = #buy_id#
+	</update>
+	
+	<insert id="insertPayBuy" parameterClass="pvo">
+		insert into pay (pay_no, buy_id, pay_price, pay_time, pay_refund, paymet_no)
+		values(pay_seq.nextVal, #buy_id#, #pay_price#, to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'), 'N', #paymet_no#)
+	</insert>
+	
+	
+</sqlMap>

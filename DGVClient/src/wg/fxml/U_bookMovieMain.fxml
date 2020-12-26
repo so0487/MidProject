@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_bookMovieMainController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="817.0" prefWidth="1195.0">
+         <children>
+            <ImageView fitHeight="134.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/block.PNG" />
+               </image>
+            </ImageView>
+            <BorderPane fx:id="outerBox" layoutX="194.0" layoutY="132.0" prefHeight="533.0" prefWidth="813.0">
+               <center>
+                  <HBox prefHeight="508.0" prefWidth="813.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="445.0" prefWidth="350.0" style="-fx-border-color: #c9c6c6;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #757171;" text="영화" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane prefHeight="494.0" prefWidth="348.0">
+                                 <content>
+                                    <VBox fx:id="movieBox" prefHeight="551.0" prefWidth="332.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="474.0" prefWidth="100.0" style="-fx-border-color: #c9c6c6;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #757171;" text="날짜" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblYear" text="Year" textFill="#757171">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="lblMonth" text="Month" textFill="#757171">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="39.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="dateBox" alignment="CENTER" prefHeight="355.0" prefWidth="98.0" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="491.0" prefWidth="364.0" style="-fx-border-color: #c9c6c6;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="40.0" prefWidth="363.0" style="-fx-background-color: #757171;" text="시간" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane prefHeight="491.0" prefWidth="362.0" style="-fx-border-color: none;">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <content>
+                                    <AnchorPane prefHeight="450.0" prefWidth="356.0">
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="38.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/sun_icon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="54.0" layoutY="17.0" text="조조" />
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="94.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../img/star_icon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="129.0" layoutY="16.0" text="심야" />
+                                          <Line endX="229.0" layoutX="109.0" layoutY="46.0" startX="-100.0" stroke="#b5aeae" />
+                                          <VBox fx:id="scheduleBox" layoutX="-1.0" layoutY="47.0" prefHeight="420.0" prefWidth="350.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+            <AnchorPane fx:id="bottom" layoutY="682.0" prefHeight="136.0" prefWidth="1202.0" style="-fx-background-color: #3f3c3c;">
+               <children>
+                  <HBox alignment="CENTER" layoutX="193.0" layoutY="6.0" prefHeight="130.0" prefWidth="201.0">
+                     <children>
+                        <Label fx:id="lblMovieCheck" text="영화선택" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="386.0" layoutY="7.0" prefHeight="130.0" prefWidth="201.0">
+                     <children>
+                        <Label fx:id="lblTimeCheck" text="일시선택" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="597.0" layoutY="6.0" prefHeight="130.0" prefWidth="140.0">
+                     <children>
+                        <Label fx:id="lblSeatCheck" text="좌석선택" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnNext" alignment="BOTTOM_CENTER" layoutX="901.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnNextClick" prefHeight="95.0" prefWidth="100.0" style="-fx-border-color: white; -fx-background-color: none; -fx-border-radius: 20;" text="좌석선택" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="57.0" fitWidth="65.0" layoutX="923.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/arrowOrange.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" layoutX="745.0" layoutY="7.0" prefHeight="130.0" prefWidth="140.0">
+                     <children>
+                        <Label fx:id="lblPayCheck" text="결제선택" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

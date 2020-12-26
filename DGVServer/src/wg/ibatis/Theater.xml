@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="theater">
+	
+	<insert id="insertTheater" parameterClass="thvo">
+		insert into Theater(theater_id, theater_name, theater_numofseat, theater_status) 
+		values(#theater_id#, #theater_name#, #theater_numOfSeat#, #theater_status#)
+	</insert>
+	
+	<select id="selectAllTheater" resultClass="thvo">
+		select * from theater order by theater_id asc
+	</select>
+	
+	<select id="selectTheater" resultClass="thvo">
+		select * from theater where theater_id = #theater_id#
+	</select>
+	
+	<update id="updateTheater" parameterClass="thvo">
+		update theater
+		set theater_name = #theater_name#, 
+		    theater_numofseat = #theater_numOfSeat#, 
+		    theater_status =  #theater_status#
+		where theater_id = #theater_id#
+	</update>
+	
+	<delete id="deleteTheater" parameterClass="String">
+		delete from theater where theater_id = #theater_id#
+	</delete>
+	
+	<select id="getThId" resultClass="String" parameterClass="String">
+		select theater_id from theater where theater_name=#theater_name#
+	</select>
+	
+	<update id="updateSeatNum" parameterClass="String">
+		update theater 
+		set THEATER_NUMOFSEAT = (select count(*) from seat where theater_id = #theater_id#)
+		where theater.theater_id = #theater_id#
+	</update>
+	
+	<select id="theaterNameListforADay" parameterClass="Map" resultClass="String">
+		select theater_name
+		from theater c,
+		(select distinct a.theater_id
+		from smovie a, (select distinct x.smovie_no 
+		from mschedule x, smovie y, movie z 
+		where x.smovie_no=y.smovie_no
+		and y.movie_id=z.movie_id
+		and show_time like #selectedDate#||'%' and movie_name=#selectedMovie#) b
+		where a.smovie_no=b.smovie_no) d
+		where c.theater_id = d.theater_id order by 1
+	</select>
+	
+	<insert id="insertTheSeat" parameterClass="seatvo">
+		insert into seat(seat_id, theater_id, seat_name, seat_status, seat_price)
+		values(#seat_id#, #theater_id#, #seat_name#, 'Y', #seat_price#)
+	</insert>
+	
+	<select id="getMaxTh_id" resultClass="String">
+		select max(theater_id) from theater
+	</select>
+	
+	<delete id="deleteThSeat" parameterClass="String">
+		delete from seat where theater_id = #theater_id#
+	</delete>
+
+</sqlMap>

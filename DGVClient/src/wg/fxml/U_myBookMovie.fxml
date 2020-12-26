@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="215.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_myBookMovieOneController">
+   <children>
+      <HBox layoutX="7.0" layoutY="14.0" prefHeight="188.0" prefWidth="679.0">
+         <children>
+            <AnchorPane prefHeight="188.0" prefWidth="627.0" style="-fx-background-color: white; -fx-border-color: #adabab;">
+               <children>
+                  <ImageView fx:id="posterImg" fitHeight="127.0" fitWidth="106.0" layoutX="23.0" layoutY="13.0" />
+                  <Label layoutX="316.0" layoutY="73.0" text="예매일시" />
+                  <Label fx:id="txtMyBmId" layoutX="201.0" layoutY="70.0" prefHeight="21.0" prefWidth="56.0" textFill="#f50101">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtBookDate" layoutX="371.0" layoutY="70.0" prefHeight="21.0" prefWidth="159.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtMovieName" layoutX="145.0" layoutY="13.0" prefHeight="37.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="316.0" layoutY="105.0" text="관람일시" />
+                  <Label layoutX="152.0" layoutY="158.0" text="총 결제금액">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="txtWatchDate" layoutX="372.0" layoutY="102.0" prefHeight="21.0" prefWidth="166.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtTheaterName" layoutX="202.0" layoutY="102.0" prefHeight="21.0" prefWidth="65.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtPrice" alignment="CENTER_RIGHT" layoutX="243.0" layoutY="158.0" prefHeight="21.0" prefWidth="56.0" text="0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="14.0" layoutY="140.0" prefHeight="18.0" prefWidth="602.0" />
+                  <Label layoutX="299.0" layoutY="159.0" text="원">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="btnReview" layoutX="547.0" layoutY="65.0" mnemonicParsing="false" onAction="#dataReview" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: white; -fx-border-color: #403d3d; -fx-border-width: 1; -fx-border-radius: 3;" text="리뷰작성" textFill="#514b4b">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnRefund" layoutX="547.0" layoutY="101.0" mnemonicParsing="false" onAction="#dataRefund" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: white; -fx-border-color: #403d3d; -fx-border-width: 1; -fx-border-radius: 3;" text="환불신청" textFill="#514b4b">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="146.0" layoutY="54.0" prefHeight="2.0" prefWidth="466.0" />
+                  <Label layoutX="146.0" layoutY="73.0" text="예매번호" />
+                  <Label layoutX="146.0" layoutY="105.0" text="상영관" />
+                  <ImageView fitHeight="37.0" fitWidth="56.0" layoutX="552.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/dgbLogo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblCancel" layoutX="502.0" layoutY="5.0" onDragDetected="#dataCancel" prefHeight="21.0" prefWidth="56.0" text="예매취소" textFill="#f80202" visible="false" />
+                  <Label fx:id="refStamp" alignment="CENTER" layoutX="455.0" layoutY="17.0" prefWidth="80.0" style="-fx-background-color: red; -fx-border-radius: 2; -fx-background-radius: 5;" text="환불완료" textFill="WHITE" visible="false">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

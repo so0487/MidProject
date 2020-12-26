@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="587.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_bookMovie_seatChoiceMainController">
+   <children>
+      <Label alignment="CENTER" prefHeight="40.0" prefWidth="818.0" style="-fx-background-color: #3f3c3c;" text="인원/좌석" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane prefHeight="551.0" prefWidth="813.0">
+         <children>
+            <Line endX="669.0" layoutX="136.0" layoutY="119.0" startX="-125.0" stroke="#b5b2b2" />
+            <Label layoutX="37.0" layoutY="34.0" text="일반" textFill="#575656" />
+            <Label layoutX="37.0" layoutY="71.0" text="청소년" textFill="#575656" />
+            <Label layoutX="441.0" layoutY="27.0" prefHeight="58.0" prefWidth="254.0" text="날짜(요일) 상영시작시간">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="74.0" layoutX="505.0" layoutY="23.0" startX="-100.0" stroke="#aeaeae" />
+            <HBox fx:id="cBox" layoutX="82.0" layoutY="66.0" prefHeight="32.0" prefWidth="224.0" />
+            <HBox fx:id="aBox" layoutX="82.0" layoutY="26.0" prefHeight="32.0" prefWidth="224.0" />
+            <Label alignment="CENTER" layoutX="123.0" layoutY="154.0" prefHeight="25.0" prefWidth="563.0" style="-fx-border-color: #827e7e;" text="screen" textFill="#827e7e">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <VBox fx:id="rowBox" alignment="TOP_CENTER" layoutX="139.0" layoutY="207.0" prefHeight="249.0" prefWidth="26.0" />
+            <VBox fx:id="seatBox" layoutX="181.0" layoutY="207.0" prefHeight="329.0" prefWidth="478.0" />
+            <Button layoutX="716.0" layoutY="187.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="68.0" style="-fx-background-color: #3f3c3c;" text="다시하기" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org//dtd/sql-map-2.dtd">
+<sqlMap namespace="coupon">
+	<insert id="insertCoupon" parameterClass="cvo">
+		insert into coupon values (#cou_id#, #cou_name#, #cou_sale#, #cou_time#)
+	</insert>
+	
+	<delete id="deleteCoupon" parameterClass="String">
+		delete from coupon where cou_id = #cou_id#
+	</delete>
+	
+	<update id="updateCoupon" parameterClass="cvo">
+		update coupon set cou_name=#cou_name#, cou_sale=#cou_sale#, cou_time=#cou_time# where cou_id=#cou_id#
+	</update>
+	
+	<select id="getAllCoupon" resultClass="cvo">
+		select * from coupon
+	</select>
+	
+	<select id="getMaxCou_id" resultClass="String">
+		select max(cou_id) from coupon
+	</select>
+	
+	<select id="userCoupon" resultClass="cvo2" parameterClass="String">
+		select a.cou_id, a.cou_name, a.cou_sale, a.cou_time, b.issue_time, b.issue_no, b.issue_use 
+		from coupon a, couponissue b 
+		where a.cou_id = b.cou_id and b.MEM_ID = #mem_id#
+		and to_date(b.ISSUE_TIME, 'yyyy-MM-dd HH24:mi:ss')+a.COU_TIME > sysdate
+		and b.issue_use = 'N'
+	</select>
+	
+</sqlMap>
+

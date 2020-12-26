@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org//dtd/sql-map-2.dtd">
+<sqlMap namespace="discount">
+	<insert id="insertDiscount" parameterClass="dvo">
+		insert into discount values (#dis_id#, #dis_name#)
+	</insert>
+	
+	<delete id="deleteDiscount" parameterClass="String">
+		delete from discount where dis_id = #dis_id#
+	</delete>
+	
+	<update id="updateDiscount" parameterClass="dvo">
+		update discount set dis_name=#dis_name# where dis_id=#dis_id#
+	</update>
+	
+	<select id="getAllDiscount" resultClass="dvo">
+		select * from discount
+	</select>
+	
+	<select id="getMaxDis_id" resultClass="String">
+		select max(dis_id) from discount
+	</select>
+</sqlMap>
+

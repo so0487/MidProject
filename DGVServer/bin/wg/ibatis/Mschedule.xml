@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="mschedule">
+
+	<select id="msView" resultClass="msvo" parameterClass="java.util.Map">
+		select distinct b.movie_name, c.theater_name, a.show_time, e.dis_name, c.theater_id, b.movie_id, e.dis_id, a.show_no, d.smovie_no, b.movie_runningtime 
+		from mschedule a, movie b, theater c, smovie d, discount e
+	 	where d.smovie_no = a.SMOVIE_NO
+	 	and d.MOVIE_ID = b.MOVIE_ID
+	 	and e.dis_id = a.dis_id
+	 	and c.theater_id = d.THEATER_ID
+	 	and show_time like '%'||#date#||'%' and c.theater_name = #theater_name#
+	 	order by a.show_no asc
+	</select>
+	
+	<select id="viewMoname" resultClass="msvo" parameterClass="String">
+		select distinct b.movie_name, d.smovie_no, b.movie_runningtime from mschedule a, movie b, theater c, smovie d, discount e
+ 		where d.MOVIE_ID = b.MOVIE_ID
+ 		and e.dis_id = a.dis_id
+ 		and c.theater_id = d.THEATER_ID
+ 		and c.theater_name = #theater_name#
+	</select>
+	
+	<insert id="insertMs" parameterClass="msvo2">
+		insert into mschedule(show_no, smovie_no, dis_id, show_time)
+		values(mschedule_seq.nextVal, $smovie_no$, #dis_no#, #show_beginTime#)
+	</insert>
+	
+	<delete id="deletMs" parameterClass="int">
+		delete from mschedule where show_no = $smovie_no$
+	</delete>
+	
+	<select id="getShowInfo" resultClass="sivo" parameterClass="Map">
+		select a.show_time as "show_time", a.dis_id, a.show_no
+		from mschedule a, smovie b, movie c, theater d
+		where a.smovie_no = b.smovie_no
+		and b.theater_id = d.theater_id
+		and b.movie_id = c.movie_id
+		and c.movie_name = #selectedMovie#
+		and a.show_time like #selectedDate#||'%'
+		and d.theater_name = #selectedTheater#
+		order by 1
+	</select>
+	
+	<select id="getShow_no" resultClass="int" parameterClass="Map">
+		select a.show_no 
+		from mschedule a, smovie b, movie c
+		where a.smovie_no = b.smovie_no
+		and b.movie_id = c.movie_id
+		and c.movie_name = #selectedMovie#
+		and a.show_time like #selectedDate#||' '||#selectedTime#||'%'
+		order by 1
+	</select>
+	
+	<select id="getDis_id" resultClass="String" parameterClass="int">
+		select dis_id from mschedule where show_no = #show_no#
+	</select>
+	
+	<delete id="deletMsSeat" parameterClass="int">
+		delete from seatsch where show_no = $show_no$
+	</delete>
+	
+</sqlMap>

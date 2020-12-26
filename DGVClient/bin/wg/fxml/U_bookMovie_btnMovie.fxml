@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="btnBox" prefWidth="350.0" style="-fx-border-color: #c2baba;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wg.main.U_bookMovie_btnMovieController">
+   <children>
+      <Button fx:id="btnMovie" mnemonicParsing="false" prefHeight="40.0" prefWidth="310.0" style="-fx-background-color: none; -fx-alignment: center-left;" text="movieName" />
+      <ImageView fx:id="imgAdult" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../img/over19.png" />
+         </image>
+      </ImageView>
+   </children>
+</HBox>

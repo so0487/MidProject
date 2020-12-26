@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="event">
+	<insert id="insertEvent" parameterClass="eventvo">
+	insert into event(event_no, event_writer, mem_id, event_title, event_photo,  event_time ) values (
+                   	event_seq.nextVal, 'm001', #mem_id#, #event_title#, #event_photo#, sysdate)
+	
+	</insert>
+	
+<!-- 	<select id="getAllEvent2" resultClass="eventvo" parameterClass="map"> -->
+<!-- 	select a.event_no, a.event_writer, b.mem_id, a.event_title, a.event_photo, a.event_time  -->
+<!-- 		from event a, member b  -->
+<!-- 		where   a.mem_id = b.mem_id and b.mem_lev=3 -->
+<!-- 	</select> -->
+	<select id="getAllEvent" resultClass="eventvo" >
+	select *
+		from event 
+	</select>
+	
+	 <delete id="deleteEvent" parameterClass="int">
+		delete from event where event_no=$event_no$
+		</delete>
+		
+		<update id="updateEvent" parameterClass="eventvo">
+		 update event set mem_id = #mem_id#, event_title = #event_title#, event_photo = #event_photo#, event_time = #event_time#
+		  where event_no = $event_no$
+		 </update>
+	
+	
+</sqlMap>

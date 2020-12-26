@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DGVClient/src/wg/fxml/M_bookmeMemberCnt.fxml&apos; to &apos;M_bookGenderCnt.fxml&apos;" description="Rename resource &apos;M_bookmeMemberCnt.fxml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/wg/fxml/M_bookmeMemberCnt.fxml" name="M_bookGenderCnt.fxml" stamp="1598188001942" updateReferences="true"/>
+</session>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="snackSet">
+	<insert id="insertSnackSet" parameterClass="snackvo">
+		insert into SNACKSET (set_id, set_name, set_price, set_photo)
+		values(#set_id#, #set_name#, #set_price#, #set_photo#)
+	</insert>
+	
+	
+	
+	<select id="getAllSnackSetList" resultClass="snackvo">
+		select * from SNACKSET order by set_id asc
+	</select>
+	
+	
+	
+	<select id="selectSnackSet" resultClass="snackvo">
+	
+		select * from SNACKSET
+		where set_id = #set_id#
+	
+	</select>
+	
+	
+	
+	
+	
+	<delete id="deleteSnackSet" parameterClass="String">
+		delete from SNACKSET where set_id=#set_id#
+	</delete>
+	
+	
+	
+	<update id="updateSnackSet" parameterClass="snackvo">
+		update SNACKSET
+		set set_id=#set_id#,
+			set_name=#set_name#,
+			set_price=#set_price#,
+			set_photo=#set_photo#
+		where set_id = #set_id#
+		
+		
+		
+		
+
+	
+	</update>
+	
+	
+	<select id="getMaxSetId" resultClass="String">
+		select max(set_id) from snackset
+	
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+</sqlMap>
+
+
+
+
+

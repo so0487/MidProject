@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="auction">
+  
+	<select id="getAllAuction" resultClass="aucvo">
+		select * from auction
+	</select>
+	
+	<insert id="insertAuction" parameterClass="aucvo">
+	 	
+		insert into auction values (auc_seq.nextVal , #sseat_no#,#auc_title#,to_char(sysdate+ 30/24/60/60, 'yyyy-mm-dd hh24:mi:ss'),to_char(sysdate + 60/24/60/60, 'yyyy-mm-dd hh24:mi:ss')) 
+	</insert>
+	
+	<update id="updateAuction" parameterClass="aucvo">
+		update auction
+		set sseat_no = #sseat_no#, 
+		    auc_title = #auc_title#, 
+		    auc_startTime = to_char(sysdate+ 30/24/60/60, 'yyyy-mm-dd hh24:mi:ss'),
+		    auc_endTime = to_char(sysdate + 90/24/60/60, 'yyyy-mm-dd hh24:mi:ss')
+		where auc_no = #auc_no#
+	</update>
+	
+	<delete id="deleteAuction" parameterClass="int">
+		delete from auction where auc_no = #auc_no#
+	</delete>
+	
+	<select id = "aucPoster" parameterClass="int" resultClass="String">
+	select e.movie_poster
+	from auction a, seatsch b, mschedule c, smovie d, movie e
+	where a.sseat_no = #sseat_no#
+	and a.sseat_no=b.sseat_no
+	and b.show_no=c.show_no
+	and c.smovie_no=d.smovie_no
+	and d.movie_id=e.movie_id
+	</select>
+	
+	<select id = "findSseat" parameterClass="int" resultClass="int">
+	select count(*) 
+	from auction a, seatsch b
+	where a.sseat_no = b.sseat_no
+	and a.sseat_no = #sseat_no#
+	</select>
+	
+	<select id = "searchtt" parameterClass="aucttvo" resultClass="aucttvo">
+	select a.theater_name,
+    	   d.show_time
+
+	from  theater a, smovie b, movie c,mschedule d
+	where b.movie_id = c.movie_id
+	and a.theater_id = b.theater_id
+	and b.smovie_no = d.smovie_no
+	and c.movie_name = #theater_name#
+	and d.show_time LIKE #show_time#||'%'
+	</select>
+	<select id = "searchseat" parameterClass="Map" resultClass="ssvo">
+	select  e.seat_id,
+        e.SSEAT_NO
+	from  theater a, smovie b, movie c,mschedule d, seatsch e
+	where b.movie_id = c.movie_id
+	and a.theater_id = b.theater_id
+	and b.smovie_no = d.smovie_no
+	and d.show_no = e.show_no
+	and e.sseat_status = 'N'
+	and c.movie_name = #movie_name#
+	and d.show_time LIKE #show_time#
+	</select>
+	
+	
+</sqlMap>	

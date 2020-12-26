@@ -1,0 +1,6 @@
+
+
+driver=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@112.220.114.130:1521:xe
+user=team2_202004am
+pass=java
